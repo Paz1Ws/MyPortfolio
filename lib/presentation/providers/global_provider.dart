@@ -23,18 +23,27 @@ class RiverpodProvider {
     await launchUrl(Uri.parse(
         "https://drive.google.com/file/d/1e58wtBIwHplIe3lXgajiDLqMF3OjsTZD/view?usp=drive_link"));
   }
+
+  final List<String> innerStyleImages = [
+    "assets/images/.NetCertification.jpg",
+    "assets/images/FlutterCertificate.jpg",
+  ];
 }
 
 class NavigationByPages {
   final aboutSection = GlobalKey();
   final projectsSection = GlobalKey();
   final contactSection = GlobalKey();
+  final certificationsSection = GlobalKey();
+  final experienceSection = GlobalKey();
   void scrollGlobal(GlobalKey key) {
-    Scrollable.ensureVisible(
-      key.currentContext!,
-      duration: const Duration(seconds: 1),
-      curve: Curves.easeInOut,
-    );
+    if (key.currentContext == null) {
+      Scrollable.ensureVisible(
+        key.currentContext!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 }
 

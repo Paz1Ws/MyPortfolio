@@ -14,7 +14,9 @@ class ProyectsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
+
     return Scaffold(
+      key: NavigationByPages().projectsSection,
       body: Stack(
         children: [
           Align(
