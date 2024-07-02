@@ -10,7 +10,7 @@ class DrawClip extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
-    path.lineTo(0, size.height * 0.5);
+    path.lineTo(0, size.height * 0.6);
     double xCenter =
         size.width * 0.5 + (size.width * 0.6 + 1) * math.sin(move * slice);
     double yCenter = size.height * 0.8 + 69 * math.cos(move * slice);
