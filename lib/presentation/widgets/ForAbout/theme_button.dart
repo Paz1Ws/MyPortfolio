@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/config/theme/global_theme.dart';
 
 class ThemeIconButton extends ConsumerWidget {
-  const ThemeIconButton({Key? key}) : super(key: key);
+  const ThemeIconButton({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

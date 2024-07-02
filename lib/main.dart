@@ -5,7 +5,7 @@ import 'package:my_portfolio/presentation/widgets/screen_loader.dart';
 
 void main() async {
   await Future.delayed(const Duration(seconds: 10));
-  runApp(ProviderScope(child: MainApp()));
+  runApp(const ProviderScope(child: MainApp()));
 }
 
 class MainApp extends ConsumerWidget {

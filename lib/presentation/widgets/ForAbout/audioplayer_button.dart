@@ -2,6 +2,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPlayer extends StatefulWidget {
+  const ButtonPlayer({super.key});
+
   @override
   _ButtonPlayerState createState() => _ButtonPlayerState();
 }

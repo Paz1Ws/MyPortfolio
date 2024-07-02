@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/presentation/screens/about_screen.dart';
 import 'package:my_portfolio/presentation/screens/certifications_screen.dart';
@@ -20,7 +19,7 @@ class GlobalScreen extends ConsumerWidget {
       ProyectsScreen(),
       const CertificationsScreen(),
       const ExpAndTech(),
-      const ContactScreen(),
+      ContactScreen(),
     ];
     return Scaffold(
       body: CustomScrollView(
@@ -73,8 +72,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             right: Radius.circular(10),
           ),
         ),
-        actions: [
-          const ThemeIconButton(),
+        actions: const [
+          ThemeIconButton(),
           ButtonPlayer(),
         ],
       ),

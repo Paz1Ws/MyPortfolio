@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/presentation/providers/global_provider.dart';
-import 'package:my_portfolio/presentation/widgets/draw_clip.dart';
 
 class ContactScreen extends ConsumerWidget {
-  const ContactScreen({Key? key});
+  const ContactScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,7 +14,7 @@ class ContactScreen extends ConsumerWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-            child: Flexible(
+            child: const Flexible(
               // Remove 'const' keyword
               fit: FlexFit.tight,
               child: Padding(
