@@ -25,3 +25,4 @@ class DrawClip extends CustomClipper<Path> {
     return true;
   }
 }
+// Path: lib/presentation/widgets/for_experience&techs/skills.dart
