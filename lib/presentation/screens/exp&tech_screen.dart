@@ -8,21 +8,15 @@ class ExpAndTech extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final double paddingBottom = MediaQuery.of(context).size.height * 0.5;
-
     return Scaffold(
-      backgroundColor: Colors.white,
       key: NavigationByPages().experienceSection,
-      body: Padding(
-        padding: EdgeInsets.only(bottom: paddingBottom),
-        child: const Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Skills(),
-              // Experience(), Cooming Soon
-            ],
-          ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Skills(),
+            // Experience(), Cooming Soon
+          ],
         ),
       ),
     );

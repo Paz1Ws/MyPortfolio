@@ -9,7 +9,6 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 20),
         ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(
             colors: [
@@ -46,13 +45,14 @@ class TechsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center, // Add this line
       children: [
-        Wrap(
-          alignment: WrapAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
             RichText(
               text: TextSpan(
-                text: 'Apps Development & Frontend: ',
+                text: 'Frontend & Mobile: ',
                 style: GoogleFonts.ubuntuMono(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -88,8 +88,8 @@ class TechsList extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Wrap(
-          alignment: WrapAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
             RichText(
               text: TextSpan(
@@ -144,12 +144,12 @@ class TechsList extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
-        Wrap(
-          alignment: WrapAlignment.center,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
             RichText(
               text: TextSpan(
-                text: 'Tools for the daily life:',
+                text: 'Tools for the daily life: ',
                 style: GoogleFonts.ubuntuMono(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -186,7 +186,7 @@ class TechsList extends StatelessWidget {
         const SizedBox(height: 20),
         RichText(
             text: TextSpan(
-          text: 'Of course, more coming!...',
+          text: 'Always learning. More coming!...',
           style:
               GoogleFonts.tangerine(fontSize: 50, fontWeight: FontWeight.bold),
         ))

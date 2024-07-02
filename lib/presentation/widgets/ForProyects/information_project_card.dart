@@ -55,7 +55,7 @@ class InformationCards extends ConsumerWidget {
                         information
                             .substring(0, information.indexOf('=>'))
                             .trim(),
-                        style: GoogleFonts.ubuntu(
+                        style: GoogleFonts.ubuntuCondensed(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -68,7 +68,7 @@ class InformationCards extends ConsumerWidget {
                         information
                             .substring(information.indexOf('=>') + 2)
                             .trim(),
-                        style: GoogleFonts.ubuntuMono(
+                        style: GoogleFonts.montserrat(
                             fontSize: 22,
                             fontWeight: FontWeight.normal,
                             color: Theme.of(context).textTheme.bodyLarge!.color,
@@ -83,7 +83,7 @@ class InformationCards extends ConsumerWidget {
                       ]).createShader(bounds),
                       child: Text(
                         "Made with",
-                        style: GoogleFonts.ubuntuMono(
+                        style: GoogleFonts.montserrat(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).textTheme.bodyLarge!.color,

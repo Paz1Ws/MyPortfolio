@@ -39,6 +39,8 @@ class ProyectsScreen extends ConsumerWidget {
                       child: Text(
                         "All my Projects till the moment",
                         style: GoogleFonts.ubuntuMono(
+                          decoration: TextDecoration.underline,
+                          decorationThickness: 2,
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
                         ),
@@ -59,11 +61,8 @@ class ProyectsScreen extends ConsumerWidget {
                       child: Text(
                         "From humble beginnings to coding masterpieces, my projects are a testament to my passion for innovation",
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.ubuntuMono(
-                          fontSize: 25,
-                          decoration: TextDecoration.underline,
-                          decorationStyle: TextDecorationStyle.values[3],
-                          decorationThickness: 5.0,
+                        style: GoogleFonts.montserrat(
+                          fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -72,14 +71,16 @@ class ProyectsScreen extends ConsumerWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 90, right: 500, top: 190),
+          Padding(
+            padding: const EdgeInsets.only(left: 100),
             child: Flexible(
               fit: FlexFit.tight,
-              child: SizedBox(
-                width: 600,
-                height: 1000,
-                child: ProjectsSwiper(),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.3,
+                    height: MediaQuery.sizeOf(context).height * 0.8,
+                    child: const ProjectsSwiper()),
               ),
             ),
           ),

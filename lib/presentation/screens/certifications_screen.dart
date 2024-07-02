@@ -15,15 +15,8 @@ class CertificationsScreen extends ConsumerWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           SizedBox(
             width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height,
-            child: Flexible(
-              fit: FlexFit.tight,
-              child: Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.sizeOf(context).height * 0.3),
-                child: const CertificationsView(),
-              ),
-            ),
+            height: MediaQuery.sizeOf(context).height - 100,
+            child: const CertificationsView(),
           )
         ]),
       ),

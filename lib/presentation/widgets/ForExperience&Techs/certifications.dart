@@ -1,27 +1,20 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/providers/global_provider.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_card.dart';
+import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_carousel_indicator.dart';
 
-class CertificationsView extends StatefulWidget {
+class CertificationsView extends ConsumerStatefulWidget {
   const CertificationsView({super.key});
 
   @override
-  State<CertificationsView> createState() => _CertificationsViewState();
+  ConsumerState<CertificationsView> createState() => _CertificationsViewState();
 }
 
-class _CertificationsViewState extends State<CertificationsView>
+class _CertificationsViewState extends ConsumerState<CertificationsView>
     with SingleTickerProviderStateMixin {
-  late CarouselController innerCarouselController;
-  int innerCurrentPage = 0;
-
-  @override
-  void initState() {
-    innerCarouselController = CarouselController();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     Size size;
@@ -44,12 +37,14 @@ class _CertificationsViewState extends State<CertificationsView>
     );
   }
 
-  /// Bottom Navigation bar
   Widget _innerBannerSlider(double height, double width) {
+    final CarouselController controller = CarouselController();
+
+    final certificationImages = certificationImagesProvider;
+    final innerCurrentPage = ref.watch(innerCurrentPageProvider);
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center, // Añade esta línea
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        /// Slider Style
         Padding(
           padding: const EdgeInsets.all(15),
           child: ShaderMask(
@@ -63,13 +58,15 @@ class _CertificationsViewState extends State<CertificationsView>
             child: Text(
               "Achievements & Certifications",
               style: GoogleFonts.ubuntuMono(
+                decoration: TextDecoration.underline,
+                decorationThickness: 2,
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
         ),
-
+        const SizedBox(height: 40),
         SizedBox(
           height: height * .5,
           width: width,
@@ -78,28 +75,29 @@ class _CertificationsViewState extends State<CertificationsView>
             children: [
               Positioned.fill(
                 child: CarouselSlider(
-                  carouselController: innerCarouselController,
+                  carouselController: controller,
                   options: CarouselOptions(
                     autoPlay: true,
                     enlargeCenterPage: true,
                     enableInfiniteScroll: true,
                     viewportFraction: 0.8,
-                    onPageChanged:
-                        (int index, CarouselPageChangedReason reason) {
-                      setState(() {
-                        innerCurrentPage = index;
-                      });
-                    },
+                    onPageChanged: (index, reason) => ref
+                        .read(innerCurrentPageProvider.notifier)
+                        .state = index,
                   ),
-                  items: RiverpodProvider().innerStyleImages.map((imagePath) {
-                    return Builder(builder: (BuildContext context) {
-                      return CertificationCard(image: imagePath);
-                    });
-                  }).toList(),
+                  items: certificationImages
+                      .map((imagePath) => CertificationCard(image: imagePath))
+                      .toList(),
                 ),
-              ),
+              )
             ],
           ),
+        ),
+        const SizedBox(height: 40),
+        CertificationsCarouselIndicator(
+          certificationImagesProvider: certificationImages,
+          innerCurrentPage: innerCurrentPage,
+          controller: controller,
         ),
       ],
     );

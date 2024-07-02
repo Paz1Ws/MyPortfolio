@@ -23,11 +23,6 @@ class RiverpodProvider {
     await launchUrl(Uri.parse(
         "https://drive.google.com/file/d/1e58wtBIwHplIe3lXgajiDLqMF3OjsTZD/view?usp=drive_link"));
   }
-
-  final List<String> innerStyleImages = [
-    "assets/images/.NetCertification.jpg",
-    "assets/images/FlutterCertificate.jpg",
-  ];
 }
 
 class NavigationByPages {
@@ -70,3 +65,8 @@ final iconsListProvider = StateProvider((ref) => [
       OnlyInformation().billboard_icons,
       OnlyInformation().billboard_icons,
     ]);
+final innerCurrentPageProvider = StateProvider<int>((ref) => 0);
+final List<String> certificationImagesProvider = [
+  "assets/images/.NetCertification.jpg",
+  "assets/images/FlutterCertificate.jpg",
+];
