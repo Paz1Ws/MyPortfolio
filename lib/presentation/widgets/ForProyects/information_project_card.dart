@@ -3,21 +3,21 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/providers/global_provider.dart';
+import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {
   final int index;
-  const InformationCards({super.key, required this.index}) : assert(index >= 0);
+  const InformationCards({super.key, required this.index});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final projectsLinks = RiverpodProvider().projectsLinks;
     final informationList = ref.watch(informationListProvider);
     final iconsList = ref.watch(iconsListProvider);
-    final information = informationList[index];
     return Container(
-      width: 500,
-      height: 500,
+      width: MediaQuery.of(context).size.width * 0.8,
+      height: MediaQuery.of(context).size.height * 0.6,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -52,9 +52,7 @@ class InformationCards extends ConsumerWidget {
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Text(
-                        information
-                            .substring(0, information.indexOf('=>'))
-                            .trim(),
+                        informationList[index],
                         style: GoogleFonts.ubuntuCondensed(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
@@ -62,19 +60,7 @@ class InformationCards extends ConsumerWidget {
                             decoration: TextDecoration.none),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        information
-                            .substring(information.indexOf('=>') + 2)
-                            .trim(),
-                        style: GoogleFonts.montserrat(
-                            fontSize: 22,
-                            fontWeight: FontWeight.normal,
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
-                            decoration: TextDecoration.none),
-                      ),
-                    ),
+                    const SizedBox(height: 20),
                     ShaderMask(
                       shaderCallback: (bounds) => LinearGradient(colors: [
                         const Color.fromARGB(255, 255, 255, 255),

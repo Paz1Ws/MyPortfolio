@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/providers/global_provider.dart';
+import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
 import 'package:my_portfolio/presentation/widgets/ForProyects/information_project_card.dart';
 import 'package:my_portfolio/presentation/widgets/ForProyects/projects_swiper.dart';
 
@@ -25,7 +26,7 @@ class ProyectsScreen extends ConsumerWidget {
                 Expanded(
                   flex: 0,
                   child: Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(7),
                     child: ShaderMask(
                       shaderCallback: (bounds) => const LinearGradient(
                         colors: [
@@ -77,7 +78,7 @@ class ProyectsScreen extends ConsumerWidget {
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.3,
-                    height: MediaQuery.sizeOf(context).height * 0.8,
+                    height: MediaQuery.sizeOf(context).height * 0.85,
                     child: const ProjectsSwiper()),
               ),
             ),
