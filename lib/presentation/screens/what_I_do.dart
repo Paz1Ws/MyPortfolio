@@ -58,7 +58,7 @@ class ServiceSection extends StatelessWidget {
     return Scaffold(
       body: Padding(
         padding:
-            EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height * 0.15),
+            EdgeInsets.only(bottom: MediaQuery.sizeOf(context).height * 0.1),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

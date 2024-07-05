@@ -16,7 +16,7 @@ class InformationCards extends ConsumerWidget {
     final informationList = ref.watch(informationListProvider);
     final iconsList = ref.watch(iconsListProvider);
     return Container(
-      width: MediaQuery.of(context).size.width * 0.8,
+      width: MediaQuery.of(context).size.width * 0.6,
       height: MediaQuery.of(context).size.height * 0.6,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(

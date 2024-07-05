@@ -53,9 +53,8 @@ class ProyectsScreen extends ConsumerWidget {
                     child: ShaderMask(
                       shaderCallback: (bounds) => const LinearGradient(
                         colors: [
-                          Color.fromARGB(255, 193, 172, 172),
                           Color.fromARGB(255, 120, 24, 136),
-                          Color.fromARGB(255, 193, 172, 172),
+                          Color.fromARGB(255, 170, 45, 192),
                         ],
                       ).createShader(bounds),
                       child: Text(
@@ -72,26 +71,27 @@ class ProyectsScreen extends ConsumerWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 100),
+            padding: const EdgeInsets.only(left: 100, top: 150),
             child: Flexible(
-              fit: FlexFit.tight,
+              fit: FlexFit.loose,
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
                     width: MediaQuery.sizeOf(context).width * 0.3,
-                    height: MediaQuery.sizeOf(context).height * 0.85,
+                    height: MediaQuery.sizeOf(context).height * 1.2,
                     child: const ProjectsSwiper()),
               ),
             ),
           ),
-          Flexible(
-            fit: FlexFit.tight,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 700, top: 200),
-              child: Center(
-                child: InformationCards(index: selectedProjectIndex),
-              ),
-            ),
+          Padding(
+            padding:
+                EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.32),
+            child: Align(
+                alignment: Alignment.centerRight,
+                child: Flexible(
+                  fit: FlexFit.tight,
+                  child: InformationCards(index: selectedProjectIndex),
+                )),
           )
         ],
       ),
