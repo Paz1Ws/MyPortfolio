@@ -4,6 +4,7 @@ import 'package:my_portfolio/presentation/screens/about_screen.dart';
 import 'package:my_portfolio/presentation/screens/certifications_screen.dart';
 import 'package:my_portfolio/presentation/screens/contact_screen.dart';
 import 'package:my_portfolio/presentation/screens/projects_screen.dart';
+import 'package:my_portfolio/presentation/screens/what_do.dart';
 import 'package:my_portfolio/presentation/widgets/ForAbout/theme_button.dart';
 
 import '../widgets/ForAbout/audioplayer_button.dart';
@@ -16,6 +17,8 @@ class GlobalScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Widget> screens = [
       AboutScreen(),
+      
+      ServiceSection(),
       ProyectsScreen(),
       const CertificationsScreen(),
       const ExpAndTech(),

@@ -4,7 +4,6 @@ import 'package:my_portfolio/config/theme/global_theme.dart';
 import 'package:my_portfolio/presentation/widgets/General/screen_loader.dart';
 
 void main() async {
-  await Future.delayed(const Duration(seconds: 2));
   runApp(const ProviderScope(child: MainApp()));
 }
 
