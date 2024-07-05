@@ -59,9 +59,9 @@ class ProyectsScreen extends ConsumerWidget {
                         ],
                       ).createShader(bounds),
                       child: Text(
-                        "From humble beginnings to coding masterpieces, my projects are a testament to my passion for innovation",
+                        "My projects are a testament to my passion for innovation",
                         textAlign: TextAlign.center,
-                        style: GoogleFonts.montserrat(
+                        style: GoogleFonts.josefinSans(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

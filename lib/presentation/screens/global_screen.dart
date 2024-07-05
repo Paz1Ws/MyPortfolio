@@ -4,11 +4,13 @@ import 'package:my_portfolio/presentation/screens/about_screen.dart';
 import 'package:my_portfolio/presentation/screens/certifications_screen.dart';
 import 'package:my_portfolio/presentation/screens/contact_screen.dart';
 import 'package:my_portfolio/presentation/screens/projects_screen.dart';
-import 'package:my_portfolio/presentation/screens/what_do.dart';
+import 'package:my_portfolio/presentation/screens/what_I_do.dart';
 import 'package:my_portfolio/presentation/widgets/ForAbout/theme_button.dart';
 
 import '../widgets/ForAbout/audioplayer_button.dart';
 import 'exp&tech_screen.dart';
+
+import 'package:flutter/material.dart';
 
 class GlobalScreen extends ConsumerWidget {
   const GlobalScreen({super.key});
@@ -17,12 +19,11 @@ class GlobalScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Widget> screens = [
       AboutScreen(),
-      
       ServiceSection(),
       ProyectsScreen(),
       const CertificationsScreen(),
       const ExpAndTech(),
-      ContactScreen(),
+      const ContactScreen(),
     ];
     return Scaffold(
       body: CustomScrollView(
@@ -35,11 +36,20 @@ class GlobalScreen extends ConsumerWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 final screen = screens[index];
-                return SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  height: MediaQuery.sizeOf(context).height - 80,
-                  child: screen,
-                );
+                return screen != screens[5]
+                    ? SizedBox(
+                        width: MediaQuery.sizeOf(context).width,
+                        height: MediaQuery.sizeOf(context).height - 80,
+                        child: screen,
+                      )
+                    : SizedBox(
+                        width: MediaQuery.sizeOf(context).width / 2,
+                        height: MediaQuery.sizeOf(context).height / 2,
+                        child: Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: screen,
+                        ),
+                      );
               },
               childCount: screens.length,
             ),

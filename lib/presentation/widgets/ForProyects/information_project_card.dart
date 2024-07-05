@@ -69,7 +69,7 @@ class InformationCards extends ConsumerWidget {
                       ]).createShader(bounds),
                       child: Text(
                         "Made with",
-                        style: GoogleFonts.montserrat(
+                        style: GoogleFonts.josefinSans(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Theme.of(context).textTheme.bodyLarge!.color,

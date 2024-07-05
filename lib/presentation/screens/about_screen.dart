@@ -84,36 +84,39 @@ class AboutScreen extends ConsumerWidget {
                             height: 5,
                           ),
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               text: "A Cross-Platform Developer",
-                              style: TextStyle(
-                                color: Color(0xFF00BCD4), // Cyan
+                              style: GoogleFonts.josefinSans(
+                                color: const Color(0xFF00BCD4), // Cyan
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
                               ),
                             ),
                           ),
+                          const SizedBox(
+                            height: 5,
+                          ),
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               text: "           working with Flutter to make",
-                              style: TextStyle(
-                                color: Color(0xFF00BCD4), // Cyan
+                              style: GoogleFonts.josefinSans(
+                                color: const Color(0xFF00BCD4), // Cyan
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
                               ),
                             ),
                           ),
+                          const SizedBox(
+                            height: 5,
+                          ),
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               text:
                                   "                              your ideas come real!",
-                              style: TextStyle(
-                                color: Color(0xFF00BCD4), // Cyan
+                              style: GoogleFonts.josefinSans(
+                                color: const Color(0xFF00BCD4), // Cyan
                                 fontSize: 24.0,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'Montserrat',
                               ),
                             ),
                           ),
