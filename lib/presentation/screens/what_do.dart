@@ -146,8 +146,7 @@ Text(
           const SizedBox(
             height: 80.0,
           ),
-          Container(
-            alignment: Alignment.center,
+          Center(
             child: LayoutBuilder(
               builder: (_context, constraints) {
                 return ResponsiveGridView.builder(
