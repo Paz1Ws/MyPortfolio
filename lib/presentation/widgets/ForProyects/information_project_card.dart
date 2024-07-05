@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/presentation/providers/global_provider.dart';
-import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
+import 'package:my_portfolio/config/providers/media_provider.dart';
+import 'package:my_portfolio/config/providers/information_projects_prov.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {
@@ -12,7 +12,7 @@ class InformationCards extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final projectsLinks = RiverpodProvider().projectsLinks;
+    final projectsLinks = MediaProvider().projectsLinks;
     final informationList = ref.watch(informationListProvider);
     final iconsList = ref.watch(iconsListProvider);
     return Container(

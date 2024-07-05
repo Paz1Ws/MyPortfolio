@@ -2,7 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/presentation/providers/global_provider.dart';
+import 'package:my_portfolio/config/providers/certifications_prov.dart';
+import 'package:my_portfolio/config/providers/media_provider.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_card.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_carousel_indicator.dart';
 

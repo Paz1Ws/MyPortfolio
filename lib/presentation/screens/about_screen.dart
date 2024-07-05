@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_portfolio/presentation/providers/global_provider.dart';
+import 'package:my_portfolio/config/providers/media_provider.dart';
+import 'package:my_portfolio/config/providers/navigations_key_prov.dart';
 
 class AboutScreen extends ConsumerWidget {
-  final riverpodProvider = RiverpodProvider();
+  final riverpodProvider = MediaProvider();
 
   AboutScreen({super.key});
   @override
