@@ -19,6 +19,15 @@ class ProyectsScreen extends ConsumerWidget {
       key: NavigationByPages().projectsSection,
       body: Stack(
         children: [
+          Positioned(
+            bottom: -MediaQuery.of(context).size.height * 0.1,
+            right: -80,
+            child: Image.asset("assets/images/design/blob_femur_ash.png",
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white.withOpacity(0.1)
+                    : const Color.fromARGB(36, 36, 36, 35),
+                height: MediaQuery.of(context).size.height * 0.4),
+          ),
           Align(
             alignment: Alignment.center,
             child: Column(

@@ -19,6 +19,13 @@ class AboutScreen extends ConsumerWidget {
         alignment: Alignment.centerLeft,
         children: [
           Positioned(
+            top: 0,
+            left: -100,
+            child: Image.asset("assets/images/design/blob_small_bean_ash.png",
+                color: const Color.fromARGB(36, 36, 36, 35),
+                height: MediaQuery.of(context).size.height * 1.2),
+          ),
+          Positioned(
             right: 130.0,
             top: (MediaQuery.of(context).size.height / 2) - 330,
             child: SizedBox(
