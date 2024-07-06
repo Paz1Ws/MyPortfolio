@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
 import 'package:my_portfolio/config/providers/information_projects_prov.dart';
 import 'package:swipe_deck/swipe_deck.dart';
 
@@ -14,6 +13,7 @@ class ProjectsSwiper extends ConsumerWidget {
     final projectImages = ref.watch(projectImagesProvider);
 
     return SwipeDeck(
+      aspectRatio: 1.65,
       startIndex: 0,
       onSwipeLeft: () => ref.read(selectedProjectIndexProvider.notifier).state =
           (selectedProjectIndex - 1 + projectImages.length) %
@@ -22,8 +22,7 @@ class ProjectsSwiper extends ConsumerWidget {
           .read(selectedProjectIndexProvider.notifier)
           .state = (selectedProjectIndex + 1) % projectImages.length,
       widgets: [
-        for (int i = 0; i < projectImages.length; i++)
-          ProjectCard(image: projectImages[i]),
+        for (final image in projectImages) ProjectCard(image: image),
       ],
     );
   }

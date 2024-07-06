@@ -10,8 +10,6 @@ import 'package:my_portfolio/presentation/widgets/ForAbout/theme_button.dart';
 import '../widgets/ForAbout/audioplayer_button.dart';
 import 'exp&tech_screen.dart';
 
-import 'package:flutter/material.dart';
-
 class GlobalScreen extends ConsumerWidget {
   const GlobalScreen({super.key});
 
@@ -46,7 +44,7 @@ class GlobalScreen extends ConsumerWidget {
                         width: MediaQuery.sizeOf(context).width / 2,
                         height: MediaQuery.sizeOf(context).height / 2,
                         child: Padding(
-                          padding: const EdgeInsets.all(30.0),
+                          padding: const EdgeInsets.all(20.0),
                           child: screen,
                         ),
                       );

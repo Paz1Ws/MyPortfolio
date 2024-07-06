@@ -27,7 +27,7 @@ class ProyectsScreen extends ConsumerWidget {
                 Expanded(
                   flex: 0,
                   child: Padding(
-                    padding: const EdgeInsets.all(7),
+                    padding: const EdgeInsets.only(top: 80),
                     child: ShaderMask(
                       shaderCallback: (bounds) => const LinearGradient(
                         colors: [
@@ -58,7 +58,7 @@ class ProyectsScreen extends ConsumerWidget {
                         ],
                       ).createShader(bounds),
                       child: Text(
-                        "My projects are a testament to my passion for innovation",
+                        "Showcases of my passion for innovation",
                         textAlign: TextAlign.center,
                         style: GoogleFonts.josefinSans(
                           fontSize: 24,
@@ -71,25 +71,22 @@ class ProyectsScreen extends ConsumerWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 100, top: 150),
-            child: Flexible(
-              fit: FlexFit.loose,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width * 0.3,
-                    height: MediaQuery.sizeOf(context).height * 1.2,
-                    child: const ProjectsSwiper()),
-              ),
+            padding: EdgeInsets.only(
+              top: MediaQuery.sizeOf(context).height * 0.25,
+              left: MediaQuery.sizeOf(context).width * 0.1,
             ),
+            child: SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.3,
+                child: const ProjectsSwiper()),
           ),
           Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.32),
+            padding: EdgeInsets.only(
+                top: MediaQuery.sizeOf(context).height * 0.35,
+                right: MediaQuery.sizeOf(context).width * 0.1),
             child: Align(
                 alignment: Alignment.centerRight,
                 child: Flexible(
-                  fit: FlexFit.tight,
+                  fit: FlexFit.loose,
                   child: InformationCards(index: selectedProjectIndex),
                 )),
           )

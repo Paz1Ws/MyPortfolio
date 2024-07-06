@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/config/providers/media_provider.dart';
+import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({
@@ -8,12 +11,14 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final socialButtons = MediaProvider();
     double height = MediaQuery.of(context).size.height * 0.3;
     return ContentArea(
       borderRadius: const BorderRadius.all(
         Radius.circular(20),
       ),
       child: Stack(
+        alignment: Alignment.topCenter,
         children: [
           Positioned(
             top: -20,
@@ -34,7 +39,6 @@ class ContactScreen extends StatelessWidget {
             ),
           ),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -55,47 +59,14 @@ class ContactScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 26),
-              Padding(
-                padding: EdgeInsets.only(
-                  right: MediaQuery.sizeOf(context).width * 0.3,
-                  left: MediaQuery.sizeOf(context).width * 0.3,
-                ),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    disabledBorder: InputBorder.none,
-                    labelText: 'Email or phone number ;)',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(color: Colors.purple),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(color: Colors.purple),
-                    ),
-                    labelStyle: GoogleFonts.josefinSans(
-                      color: const Color.fromARGB(255, 255, 255, 255), // Cyan
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                  ),
-                ),
+              const SizedBox(
+                height: 30,
               ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'Submit',
-                  style: GoogleFonts.josefinSans(
-                    color: const Color.fromARGB(255, 255, 255, 255), // Cyan
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              SocialMediaButtons(
+                  riverpodProvider: socialButtons,
+                  alignment: MainAxisAlignment.center),
             ],
-          )
+          ),
         ],
       ),
     );
@@ -119,6 +90,7 @@ class ContentArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       decoration: decoration ??
           BoxDecoration(
             image: const DecorationImage(

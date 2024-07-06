@@ -15,107 +15,104 @@ class InformationCards extends ConsumerWidget {
     final projectsLinks = MediaProvider().projectsLinks;
     final informationList = ref.watch(informationListProvider);
     final iconsList = ref.watch(iconsListProvider);
+
     return Container(
-      width: MediaQuery.of(context).size.width * 0.6,
+      width: MediaQuery.of(context).size.width * 0.4,
       height: MediaQuery.of(context).size.height * 0.6,
       margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Column(
-        children: [
-          Center(
-            child: ShaderMask(
-              shaderCallback: (bounds) {
-                final isDarkTheme =
-                    Theme.of(context).brightness == Brightness.dark;
-                final colors = isDarkTheme
-                    ? [
-                        Colors.grey[200]!,
-                        Colors.grey[100]!,
-                        const Color.fromARGB(255, 255, 255, 255)
-                      ]
-                    : [
-                        const Color.fromARGB(255, 201, 238, 255),
-                        const Color.fromARGB(255, 136, 217, 255),
-                        const Color.fromARGB(255, 136, 217, 255)
-                      ];
-                return LinearGradient(colors: colors).createShader(bounds);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Theme.of(context).cardColor,
-                ),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        informationList[index],
-                        style: GoogleFonts.ubuntuCondensed(
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
-                            color: Theme.of(context).textTheme.bodyLarge!.color,
-                            decoration: TextDecoration.none),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    ShaderMask(
-                      shaderCallback: (bounds) => LinearGradient(colors: [
-                        const Color.fromARGB(255, 255, 255, 255),
-                        Colors.lightBlueAccent[200]!,
-                        Colors.lightBlueAccent[400]!,
-                      ]).createShader(bounds),
-                      child: Text(
-                        "Made with",
-                        style: GoogleFonts.josefinSans(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).textTheme.bodyLarge!.color,
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        for (int i = 0; i < iconsList[index].length; i++)
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: iconsList[index][i],
-                          ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 120),
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () => launchUrl(projectsLinks[index]),
-                            icon: const Icon(FontAwesomeIcons.github),
-                            iconSize: 45,
-                            color: Colors.black,
-                          ),
-                          TextButton(
-                            child: const Text("See more over here!",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                )),
-                            onPressed: () => launchUrl(projectsLinks[index]),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+      child: informationList[index] ==
+              "Building... \n You can see another type of proyects in my GitHub"
+          ? Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                informationList[index],
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
               ),
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color.fromARGB(36, 36, 36, 35),
+                    ),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            informationList[index],
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.ubuntuCondensed(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyLarge!
+                                    .color,
+                                decoration: TextDecoration.none),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          "Made with",
+                          style: GoogleFonts.josefinSans(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.lightBlueAccent[400]!,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (final iconPath in iconsList[index])
+                              CircleAvatar(
+                                backgroundColor: Colors.transparent,
+                                radius: 20,
+                                child: Image.asset(
+                                  iconPath,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              onPressed: () => launchUrl(projectsLinks[index]),
+                              icon: const Icon(FontAwesomeIcons.github),
+                              iconSize: 45,
+                              color: Colors.black,
+                            ),
+                            TextButton(
+                              child: const Text("See more over here!",
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  )),
+                              onPressed: () => launchUrl(projectsLinks[index]),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/config/providers/media_provider.dart';
 import 'package:my_portfolio/config/providers/navigations_key_prov.dart';
+import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
 
 class AboutScreen extends ConsumerWidget {
   final riverpodProvider = MediaProvider();
@@ -123,68 +124,9 @@ class AboutScreen extends ConsumerWidget {
                           const SizedBox(
                             height: 15,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  riverpodProvider.launchURL(0);
-                                },
-                                icon: const Icon(FontAwesomeIcons.linkedinIn),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  riverpodProvider.launchURL(1);
-                                },
-                                icon: const Icon(FontAwesomeIcons.github),
-                              ),
-                              const SizedBox(
-                                width: 10,
-                              ),
-                              IconButton(
-                                onPressed: () {
-                                  riverpodProvider.launchURL(2);
-                                },
-                                icon: const Icon(FontAwesomeIcons.facebook),
-                              ),
-                              const SizedBox(width: 10),
-                              IconButton(
-                                onPressed: () {
-                                  riverpodProvider.launchURL(3);
-                                },
-                                icon: const Icon(FontAwesomeIcons.envelope),
-                              ),
-                              const SizedBox(width: 25),
-                              ElevatedButton(
-                                onPressed: () async {
-                                  riverpodProvider.download_CV();
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 20,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  elevation: 0,
-                                  textStyle: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                  side: const BorderSide(
-                                    color: Colors.purple,
-                                    width: 2,
-                                  ),
-                                  minimumSize: const Size(200, 50),
-                                ),
-                                child: const Text('Download CV'),
-                              )
-                            ],
-                          ),
+                          SocialMediaButtons(
+                              riverpodProvider: riverpodProvider,
+                              alignment: MainAxisAlignment.start),
                           const SizedBox(
                             height: 15,
                           ),

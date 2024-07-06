@@ -22,14 +22,27 @@ class Skills extends StatelessWidget {
             style: GoogleFonts.ubuntuMono(
               fontSize: 40,
               fontWeight: FontWeight.bold,
+              decoration: TextDecoration.underline,
+              decorationThickness: 2,
             ),
           ),
         ),
         const SizedBox(height: 20),
-        const Text(
-          'I have experience with the following technologies:',
-          style: TextStyle(
-            fontSize: 20,
+        ShaderMask(
+          shaderCallback: (bounds) => const LinearGradient(
+            colors: [
+              Color.fromARGB(255, 120, 24, 136),
+              Color.fromARGB(255, 170, 45, 192),
+            ],
+          ).createShader(bounds),
+          child: Text(
+            "I have experience with the following technologies",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.josefinSans(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
         ),
         const SizedBox(height: 20),
