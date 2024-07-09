@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
-import 'package:my_portfolio/config/providers/navigations_key_prov.dart';
+import 'package:my_portfolio/config/providers/navigations_prov.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/skills.dart';
 
 class ExpAndTech extends ConsumerWidget {
@@ -10,7 +9,6 @@ class ExpAndTech extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      key: NavigationByPages().experienceSection,
       body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

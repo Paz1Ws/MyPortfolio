@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:my_portfolio/config/providers/media_provider.dart';
-import 'package:my_portfolio/config/providers/navigations_key_prov.dart';
+import 'package:my_portfolio/config/providers/navigations_prov.dart';
 import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
 
 class AboutScreen extends ConsumerWidget {
@@ -14,7 +13,6 @@ class AboutScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      key: NavigationByPages().aboutSection,
       body: Stack(
         alignment: Alignment.centerLeft,
         children: [
@@ -22,7 +20,7 @@ class AboutScreen extends ConsumerWidget {
             top: 0,
             left: -100,
             child: Image.asset("assets/images/design/blob_small_bean_ash.png",
-                color: const Color.fromARGB(36, 36, 36, 35),
+                color: const Color.fromARGB(36, 36, 36, 35).withOpacity(0.2),
                 height: MediaQuery.of(context).size.height * 1.2),
           ),
           Positioned(

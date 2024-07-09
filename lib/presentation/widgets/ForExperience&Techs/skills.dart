@@ -63,13 +63,14 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            RichText(
-              text: TextSpan(
-                text: 'Frontend & Mobile: ',
-                style: GoogleFonts.ubuntuMono(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+            Text(
+              'Frontend & Mobile: ',
+              style: GoogleFonts.ubuntuMono(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
             ),
             const SizedBox(width: 20),
@@ -104,13 +105,14 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            RichText(
-              text: TextSpan(
-                text: 'Backend & Databases: ',
-                style: GoogleFonts.ubuntuMono(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+            Text(
+              'Backend & Databases: ',
+              style: GoogleFonts.ubuntuMono(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
             ),
             CardProfile(
@@ -160,13 +162,14 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            RichText(
-              text: TextSpan(
-                text: 'Tools for the daily life: ',
-                style: GoogleFonts.ubuntuMono(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
+            Text(
+              'Tools for the daily life: ',
+              style: GoogleFonts.ubuntuMono(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Colors.black,
               ),
             ),
             const SizedBox(width: 20),

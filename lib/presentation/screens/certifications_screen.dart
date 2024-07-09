@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
-import 'package:my_portfolio/config/providers/navigations_key_prov.dart';
+import 'package:my_portfolio/config/providers/navigations_prov.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications.dart';
 
 class CertificationsScreen extends StatefulWidget {
@@ -35,7 +33,6 @@ class _CertificationsScreenState extends State<CertificationsScreen>
     }
 
     return Scaffold(
-      key: NavigationByPages().certificationsSection,
       body: Center(
         child: Stack(children: [
           SizedBox(

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/providers/certifications_prov.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_card.dart';
 import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications_carousel_indicator.dart';
 
@@ -64,6 +63,23 @@ class _CertificationsViewState extends ConsumerState<CertificationsView>
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
               ),
+            ),
+          ),
+        ),
+        ShaderMask(
+          shaderCallback: (bounds) => const LinearGradient(
+            colors: [
+              Color.fromARGB(255, 120, 24, 136),
+              Color.fromARGB(255, 170, 45, 192),
+            ],
+          ).createShader(bounds),
+          child: Text(
+            "Udemy - ?",
+            textAlign: TextAlign.center,
+            style: GoogleFonts.josefinSans(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
           ),
         ),
