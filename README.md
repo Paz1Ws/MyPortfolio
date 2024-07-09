@@ -15,8 +15,10 @@ Installation:
 
 Clone the repository:
  git clone https://github.com/Paz1Ws/MyPortfolio.git
+ 
 Navigate to the project directory:
  cd my_flutter_portfolio
+ 
 Install dependencies:
  flutter pub get
 
