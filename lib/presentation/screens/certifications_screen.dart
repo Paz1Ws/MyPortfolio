@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_portfolio/config/providers/navigations_prov.dart';
-import 'package:my_portfolio/presentation/widgets/ForExperience&Techs/certifications.dart';
+import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications.dart';
 
 class CertificationsScreen extends StatefulWidget {
   const CertificationsScreen({super.key});

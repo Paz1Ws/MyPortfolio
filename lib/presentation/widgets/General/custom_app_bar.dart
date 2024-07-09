@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/config/providers/navigations_prov.dart';
-import 'package:my_portfolio/presentation/widgets/ForAbout/audioplayer_button.dart';
-import 'package:my_portfolio/presentation/widgets/ForAbout/theme_button.dart';
+import 'package:my_portfolio/presentation/widgets/About/audioplayer_button.dart';
+import 'package:my_portfolio/presentation/widgets/About/theme_button.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_bottom_shet_navigator.dart';
+
+final scrollControllerProvider =
+    StateProvider<ScrollController>((ref) => ScrollController());
 
 class CustomAppBar extends ConsumerStatefulWidget
     implements PreferredSizeWidget {
-  CustomAppBar({super.key, this.visibilityShowModal = true});
+  const CustomAppBar({super.key});
 
-  bool visibilityShowModal;
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
 
@@ -21,46 +23,51 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     final indexofPagination = ref.watch(indexPagination);
+    final scrollController = ref.watch(scrollControllerProvider);
+
+    void scrollToSection(BuildContext context, int index) {
+      // ignore: unnecessary_null_comparison
+      try {
+        scrollController.position.animateTo(
+          index * MediaQuery.of(context).size.height,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.ease,
+        );
+        ref.read(indexPagination.notifier).state = 0;
+      } catch (e) {
+        print("Ignore error in scroll.");
+      }
+    }
 
     switch (indexofPagination) {
       case 0:
-        _scrollToSection(context, 0);
-
-        ref.read(isVisible.notifier).state = true;
+        scrollToSection(context, indexofPagination);
 
         break;
       case 1:
-        _scrollToSection(context, 1);
-        setState(() {
-          ref.read(isVisible.notifier).state = true;
-        });
+        scrollToSection(context, indexofPagination);
+
         break;
       case 2:
-        _scrollToSection(context, 2);
-        setState(() {
-          ref.read(isVisible.notifier).state = true;
-        });
+        scrollToSection(context, indexofPagination);
+
         break;
       case 3:
-        _scrollToSection(context, 3);
-        setState(() {
-          ref.read(isVisible.notifier).state = true;
-        });
+        scrollToSection(context, indexofPagination);
+
         break;
       case 4:
-        _scrollToSection(context, 4);
-        setState(() {
-          ref.read(isVisible.notifier).state = true;
-        });
+        scrollToSection(context, indexofPagination);
+
         break;
       case 5:
-        _scrollToSection(context, 5);
-        setState(() {
-          ref.read(isVisible.notifier).state = true;
-        });
+        scrollToSection(context, indexofPagination);
+
         break;
       default:
+        scrollToSection(context, 0);
     }
+
     return Padding(
       padding: EdgeInsets.only(
         right: MediaQuery.of(context).size.width / 3,
@@ -69,18 +76,13 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
       child: AppBar(
         leading: IconButton(
           onPressed: () {
-            if (ref.watch(isVisible) == true) {
-              setState(() {
-                ref.read(isVisible.notifier).state = false;
-              });
-              showModalBottomSheet(
-                context: context,
-                builder: (BuildContext context) {
-                  return const CustomBottomSheetNavigator();
-                },
-                enableDrag: true,
-              );
-            }
+            showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return const CustomBottomSheetNavigator();
+              },
+              enableDrag: true,
+            ).whenComplete(() => ref.read(indexPagination.notifier).state = 0);
           },
           icon: const Icon(Icons.menu),
         ),
@@ -96,17 +98,6 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
           ButtonPlayer(),
         ],
       ),
-    );
-  }
-
-  _scrollToSection(BuildContext context, int index) {
-    final scrollable = Scrollable.of(context);
-    final double offset = index * MediaQuery.of(context).size.height;
-
-    scrollable.position.animateTo(
-      offset,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.ease,
     );
   }
 }

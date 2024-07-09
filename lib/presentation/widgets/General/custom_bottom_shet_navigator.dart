@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../config/providers/navigations_prov.dart';
 
@@ -8,10 +9,15 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    Color color = Theme.of(context).brightness == Brightness.dark
+        ? Colors.white
+        : Colors.black;
+
     return SizedBox(
       height:
           MediaQuery.of(context).size.height * 0.3, // Adjust height as needed
       child: ListView.builder(
+        itemExtent: 40,
         itemCount: 6, // Number of navigation options (modify as needed)
         itemBuilder: (context, index) {
           return TextButton.icon(
@@ -19,54 +25,53 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
               ref
                   .read(indexPagination.notifier)
                   .update((state) => state = index);
-              ref.read(isVisible.notifier).state = true;
             },
 
-            icon: getIcon(
-                index), // Function to return appropriate icon (optional)
+            icon: getIcon(index, color),
+
             label: getText(
-                index), // Function to return appropriate text (optional)
+                index, color), // Function to return appropriate text (optional)
           );
         },
       ),
     );
   }
+}
 
-  Widget getIcon(int index) {
-    switch (index) {
-      case 0:
-        return const Icon(Icons.home);
-      case 1:
-        return const Icon(Icons.search);
-      case 2:
-        return const Icon(Icons.favorite);
-      case 3:
-        return const Icon(Icons.shopping_cart);
-      case 4:
-        return const Icon(Icons.settings);
-      case 5:
-        return const Icon(Icons.person);
-      default:
-        return const Icon(Icons.error);
-    }
+Widget getIcon(int index, Color color) {
+  switch (index) {
+    case 0:
+      return Icon(Icons.person, color: color);
+    case 1:
+      return Icon(Icons.build, color: color);
+    case 2:
+      return Icon(Icons.folder, color: color);
+    case 3:
+      return Icon(FontAwesomeIcons.certificate, color: color);
+    case 4:
+      return Icon(Icons.code, color: color);
+    case 5:
+      return Icon(Icons.mail, color: color);
+    default:
+      return Icon(Icons.error, color: color);
   }
+}
 
-  Text getText(int index) {
-    switch (index) {
-      case 0:
-        return const Text('About Me');
-      case 1:
-        return const Text('What I Do');
-      case 2:
-        return const Text('Projects');
-      case 3:
-        return const Text('Certifications');
-      case 4:
-        return const Text('Experience & Technology');
-      case 5:
-        return const Text('Contact');
-      default:
-        return const Text('Error');
-    }
+Text getText(int index, Color color) {
+  switch (index) {
+    case 0:
+      return Text('About Me', style: TextStyle(color: color));
+    case 1:
+      return Text('What I Do', style: TextStyle(color: color));
+    case 2:
+      return Text('Projects', style: TextStyle(color: color));
+    case 3:
+      return Text('Certifications', style: TextStyle(color: color));
+    case 4:
+      return Text('Skills', style: TextStyle(color: color));
+    case 5:
+      return Text('Contact', style: TextStyle(color: color));
+    default:
+      return Text('Error', style: TextStyle(color: color));
   }
 }

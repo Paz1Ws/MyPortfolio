@@ -1,16 +1,12 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio/presentation/screens/about_screen.dart';
 import 'package:my_portfolio/presentation/screens/certifications_screen.dart';
 import 'package:my_portfolio/presentation/screens/contact_screen.dart';
 import 'package:my_portfolio/presentation/screens/projects_screen.dart';
 import 'package:my_portfolio/presentation/screens/what_I_do.dart';
-import 'package:my_portfolio/presentation/widgets/ForAbout/audioplayer_button.dart';
-import 'package:my_portfolio/presentation/widgets/ForAbout/theme_button.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_app_bar.dart';
-import 'package:my_portfolio/presentation/widgets/General/custom_bottom_shet_navigator.dart';
 import 'exp&tech_screen.dart';
 
 class GlobalScreen extends ConsumerWidget {
@@ -19,18 +15,23 @@ class GlobalScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final List<Widget> screens = [
-      FadeIn(child: AboutScreen()),
-      ServiceSection(),
-      ProyectsScreen(),
-      const CertificationsScreen(),
-      const ExpAndTech(),
-      const ContactScreen(),
+      FadeIn(duration: const Duration(seconds: 2), child: AboutScreen()),
+      FadeInRight(
+          duration: const Duration(seconds: 2), child: ServiceSection()),
+      FadeInLeft(duration: const Duration(seconds: 2), child: ProyectsScreen()),
+      BounceInUp(
+          duration: const Duration(seconds: 2),
+          child: const CertificationsScreen()),
+      ElasticInUp(
+          duration: const Duration(seconds: 2), child: const ExpAndTech()),
+      FlipInX(child: const ContactScreen()),
     ];
 
     return Scaffold(
         body: CustomScrollView(
+      controller: ref.watch(scrollControllerProvider),
       slivers: [
-        SliverAppBar(
+        const SliverAppBar(
           flexibleSpace: CustomAppBar(),
           floating: true,
         ),

@@ -3,9 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/providers/media_provider.dart';
 import 'package:my_portfolio/config/providers/information_projects_prov.dart';
-import 'package:my_portfolio/config/providers/navigations_prov.dart';
-import 'package:my_portfolio/presentation/widgets/ForProyects/information_project_card.dart';
-import 'package:my_portfolio/presentation/widgets/ForProyects/projects_swiper.dart';
+import 'package:my_portfolio/presentation/widgets/Projects/information_project_card.dart';
+import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart';
 
 class ProyectsScreen extends ConsumerWidget {
   final riverpodProvider = MediaProvider();

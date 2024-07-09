@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/presentation/widgets/desing_process.dart';
-import 'package:my_portfolio/presentation/widgets/name_icon.dart';
+import 'package:my_portfolio/presentation/widgets/WhatIDo/desing_process.dart';
+import 'package:my_portfolio/presentation/widgets/WhatIDo/name_icon.dart';
 
 final List<DesignProcess> designProcesses = [
   DesignProcess(
