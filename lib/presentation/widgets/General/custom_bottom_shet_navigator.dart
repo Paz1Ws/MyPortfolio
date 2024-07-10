@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,23 +17,33 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
 
     return SizedBox(
       height:
-          MediaQuery.of(context).size.height * 0.3, // Adjust height as needed
+          MediaQuery.of(context).size.height * 0.31, // Adjust height as needed
       child: ListView.builder(
         itemExtent: 40,
         itemCount: 6, // Number of navigation options (modify as needed)
         itemBuilder: (context, index) {
-          return TextButton.icon(
-            onPressed: () {
-              ref
-                  .read(indexPagination.notifier)
-                  .update((state) => state = index);
-            },
-
-            icon: getIcon(index, color),
-
-            label: getText(
-                index, color), // Function to return appropriate text (optional)
-          );
+          final text = getText(index, color);
+          if (text.data == 'Switch to Anywhere') {
+            final randomIndex = Random().nextInt(5) + 1;
+            return TextButton.icon(
+              onPressed: () {
+                ref
+                    .read(indexPagination.notifier)
+                    .update((state) => state = randomIndex);
+              },
+              label: text,
+            );
+          } else {
+            return TextButton.icon(
+              onPressed: () {
+                ref
+                    .read(indexPagination.notifier)
+                    .update((state) => state = index);
+              },
+              icon: getIcon(index, color),
+              label: text,
+            );
+          }
         },
       ),
     );
@@ -40,8 +52,6 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
 
 Widget getIcon(int index, Color color) {
   switch (index) {
-    case 0:
-      return Icon(Icons.person, color: color);
     case 1:
       return Icon(Icons.build, color: color);
     case 2:
@@ -53,14 +63,12 @@ Widget getIcon(int index, Color color) {
     case 5:
       return Icon(Icons.mail, color: color);
     default:
-      return Icon(Icons.error, color: color);
+      return const Text('');
   }
 }
 
 Text getText(int index, Color color) {
   switch (index) {
-    case 0:
-      return Text('About Me', style: TextStyle(color: color));
     case 1:
       return Text('What I Do', style: TextStyle(color: color));
     case 2:
@@ -72,6 +80,6 @@ Text getText(int index, Color color) {
     case 5:
       return Text('Contact', style: TextStyle(color: color));
     default:
-      return Text('Error', style: TextStyle(color: color));
+      return Text('Switch to Anywhere', style: TextStyle(color: color));
   }
 }

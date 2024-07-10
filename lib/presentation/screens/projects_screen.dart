@@ -88,6 +88,14 @@ class ProjectsScreen extends ConsumerWidget {
               child: const ProjectsSwiper(),
             ),
           ),
+            Padding(
+            padding: EdgeInsets.only(
+                top: MediaQuery.sizeOf(context).height * 0.35,
+                right: MediaQuery.sizeOf(context).width * 0.1),
+            child: Align(
+                alignment: Alignment.centerRight,
+                child: InformationCards(index: selectedProjectIndex)),
+          )
         ],
       ),
     );

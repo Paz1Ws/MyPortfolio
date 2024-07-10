@@ -97,11 +97,14 @@ class InformationCards extends ConsumerWidget {
                               color: Colors.black,
                             ),
                             TextButton(
-                              child: const Text("See more over here!",
+                              child: Text("See more over here!",
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : Colors.black,
                                   )),
                               onPressed: () => launchUrl(projectsLinks[index]),
                             ),

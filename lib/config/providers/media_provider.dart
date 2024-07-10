@@ -8,6 +8,7 @@ class MediaProvider {
     Uri.parse("mailto: rewardmnx@gmail.com")
   ];
   final List<Uri> projectsLinks = [
+    Uri.parse("https://github.com/Paz1Ws/JobMatch"),
     Uri.parse("https://github.com/Paz1Ws/billboard")
   ];
   void launchURL(int i) async {
@@ -18,6 +19,6 @@ class MediaProvider {
 
   void download_CV() async {
     await launchUrl(Uri.parse(
-        "https://drive.google.com/file/d/1e58wtBIwHplIe3lXgajiDLqMF3OjsTZD/view?usp=drive_link"));
+        "https://drive.google.com/file/d/1e58wtBIwHplIe3lXgajiDLqMF3OjsTZD/view?usp=sharing"));
   }
 }

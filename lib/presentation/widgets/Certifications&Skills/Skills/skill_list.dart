@@ -153,8 +153,12 @@ class TechsList extends StatelessWidget {
         RichText(
             text: TextSpan(
           text: 'Always learning. More coming!...',
-          style:
-              GoogleFonts.tangerine(fontSize: 50, fontWeight: FontWeight.bold),
+          style: GoogleFonts.tangerine(
+              fontSize: 50,
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white
+                  : Colors.black,
+              fontWeight: FontWeight.bold),
         ))
       ],
     );

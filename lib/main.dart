@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/config/theme/global_theme.dart';
-import 'package:my_portfolio/presentation/widgets/General/SplashScreen/screen_loader.dart';
+import 'package:my_portfolio/presentation/screens/global_screen.dart';
 
 void main() async {
   runApp(const ProviderScope(child: MainApp()));
@@ -17,6 +17,6 @@ class MainApp extends ConsumerWidget {
         theme:
             theme.globalBrightnessisDark ? ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen());
+        home: GlobalScreen());
   }
 }

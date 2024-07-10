@@ -16,7 +16,10 @@ class SocialMediaButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     final color = Theme.of(context).brightness == Brightness.dark
         ? Colors.white
-        : Colors.black;
+        : alignment == MainAxisAlignment.center
+            ? Colors.white
+            : Colors.black;
+
     return Row(
       mainAxisAlignment: alignment,
       children: [

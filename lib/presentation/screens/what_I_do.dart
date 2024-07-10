@@ -123,12 +123,12 @@ class ServiceSection extends StatelessWidget {
                       crossAxisAlignment: WrapCrossAlignment.center,
                       runAlignment: WrapAlignment.center,
                       children: whatIDo
-                          .map((e) => Container(
+                          .map((text) => Container(
                                 height: 200,
                                 width: 200,
                                 margin: const EdgeInsets.all(20),
                                 decoration: BoxDecoration(
-                                  color: const Color.fromARGB(75, 12, 12, 7),
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Column(
@@ -143,8 +143,8 @@ class ServiceSection extends StatelessWidget {
                                         borderRadius: BorderRadius.circular(80),
                                       ),
                                       child: Icon(
-                                        e.iconData,
-                                        color: e.color,
+                                        text.iconData,
+                                        color: text.color,
                                         size: 52,
                                       ),
                                     ),
@@ -152,7 +152,7 @@ class ServiceSection extends StatelessWidget {
                                       height: 20,
                                     ),
                                     Text(
-                                      e.title,
+                                      text.title,
                                       textAlign: TextAlign.center,
                                       style: GoogleFonts.josefinSans(
                                         color: Colors.grey[800],
