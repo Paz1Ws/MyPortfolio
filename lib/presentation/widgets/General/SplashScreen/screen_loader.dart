@@ -9,15 +9,15 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedSplashScreen(
-      animationDuration: const Duration(milliseconds: 2000),
-      splash: Expanded(
+    return Expanded(
+      child: Container(
+        color: Colors.black, // Set the background color to black
         child: Center(
-          child: Lottie.asset('assets/animations/SplashScreen.json'),
+          child: Lottie.asset(
+            'assets/animations/SplashScreen.json',
+          ),
         ),
       ),
-      nextScreen: FadeIn(child: const GlobalScreen()),
-      duration: 1300,
     );
   }
 }

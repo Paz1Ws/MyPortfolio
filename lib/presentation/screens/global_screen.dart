@@ -18,7 +18,7 @@ class GlobalScreen extends ConsumerWidget {
       FadeIn(duration: const Duration(seconds: 2), child: AboutScreen()),
       FadeInRight(
           duration: const Duration(seconds: 2), child: ServiceSection()),
-      FadeInLeft(duration: const Duration(seconds: 2), child: ProyectsScreen()),
+      FadeInLeft(duration: const Duration(seconds: 2), child: ProjectsScreen()),
       BounceInUp(
           duration: const Duration(seconds: 2),
           child: const CertificationsScreen()),
