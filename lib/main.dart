@@ -17,6 +17,6 @@ class MainApp extends ConsumerWidget {
         theme:
             theme.globalBrightnessisDark ? ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: GlobalScreen());
+        home: const GlobalScreen());
   }
 }
