@@ -43,7 +43,7 @@ Widget CertificationsSlider(double height, double width, WidgetRef ref) {
           ],
         ).createShader(bounds),
         child: Text(
-          "Udemy | ?",
+          "Udemy | DevTalles | Hackaton Awards",
           textAlign: TextAlign.center,
           style: GoogleFonts.josefinSans(
             fontSize: 24,

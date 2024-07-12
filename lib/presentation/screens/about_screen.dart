@@ -17,7 +17,7 @@ class AboutScreen extends ConsumerWidget {
         children: [
           Positioned(
             top: 0,
-            left: -100,
+            left: -50,
             child: Image.asset("assets/images/design/blob_small_bean_ash.png",
                 color: const Color.fromARGB(36, 36, 36, 35).withOpacity(0.2),
                 height: MediaQuery.of(context).size.height * 1.2),
