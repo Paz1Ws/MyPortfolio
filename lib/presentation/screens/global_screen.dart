@@ -28,36 +28,33 @@ class GlobalScreen extends ConsumerWidget {
     ];
 
     return Scaffold(
+        appBar: const CustomAppBar(),
         body: CustomScrollView(
-      controller: ref.watch(scrollControllerProvider),
-      slivers: [
-        const SliverAppBar(
-          flexibleSpace: CustomAppBar(),
-          floating: true,
-        ),
-        SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              final screen = screens[index];
-              return screen != screens[5]
-                  ? SizedBox(
-                      width: MediaQuery.sizeOf(context).width,
-                      height: MediaQuery.sizeOf(context).height,
-                      child: screen,
-                    )
-                  : SizedBox(
-                      width: MediaQuery.sizeOf(context).width / 2,
-                      height: MediaQuery.sizeOf(context).height / 2,
-                      child: Padding(
-                        padding: const EdgeInsets.all(20.0),
-                        child: screen,
-                      ),
-                    );
-            },
-            childCount: screens.length,
-          ),
-        ),
-      ],
-    ));
+          controller: ref.watch(scrollControllerProvider),
+          slivers: [
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final screen = screens[index];
+                  return screen != screens[5]
+                      ? SizedBox(
+                          width: MediaQuery.sizeOf(context).width,
+                          height: MediaQuery.sizeOf(context).height,
+                          child: screen,
+                        )
+                      : SizedBox(
+                          width: MediaQuery.sizeOf(context).width / 2,
+                          height: MediaQuery.sizeOf(context).height / 2,
+                          child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                            child: screen,
+                          ),
+                        );
+                },
+                childCount: screens.length,
+              ),
+            ),
+          ],
+        ));
   }
 }

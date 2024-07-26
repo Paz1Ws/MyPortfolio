@@ -9,8 +9,7 @@ class CertificationsView extends ConsumerStatefulWidget {
   ConsumerState<CertificationsView> createState() => _CertificationsViewState();
 }
 
-class _CertificationsViewState extends ConsumerState<CertificationsView>
-    with SingleTickerProviderStateMixin {
+class _CertificationsViewState extends ConsumerState<CertificationsView> {
   @override
   Widget build(BuildContext context) {
     Size size;

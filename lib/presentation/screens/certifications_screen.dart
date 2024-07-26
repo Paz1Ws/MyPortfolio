@@ -8,29 +8,9 @@ class CertificationsScreen extends StatefulWidget {
   State<CertificationsScreen> createState() => _CertificationsScreenState();
 }
 
-class _CertificationsScreenState extends State<CertificationsScreen>
-    with SingleTickerProviderStateMixin {
+class _CertificationsScreenState extends State<CertificationsScreen> {
   @override
   Widget build(BuildContext context) {
-    late AnimationController controller;
-
-    @override
-    void initState() {
-      super.initState();
-      controller = AnimationController(
-        duration: const Duration(seconds: 20),
-        vsync: this,
-      )..repeat();
-
-      controller.forward();
-      controller.addListener(() {
-        if (controller.status == AnimationStatus.completed) {
-          controller.reset();
-          controller.forward();
-        }
-      });
-    }
-
     return Scaffold(
       body: Center(
         child: Stack(children: [
