@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/config/providers/navigations_prov.dart';
+import 'package:my_portfolio/presentation/providers/navigations_prov.dart';
 import 'package:my_portfolio/presentation/widgets/About/audioplayer_button.dart';
 import 'package:my_portfolio/presentation/widgets/About/theme_button.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_bottom_shet_navigator.dart';

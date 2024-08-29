@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
-import 'package:my_portfolio/config/providers/information_projects_prov.dart';
+import 'package:my_portfolio/presentation/providers/media_provider.dart';
+import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {

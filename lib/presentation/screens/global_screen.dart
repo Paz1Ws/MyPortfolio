@@ -31,7 +31,9 @@ class GlobalScreen extends ConsumerWidget {
         appBar: const CustomAppBar(),
         body: CustomScrollView(
           controller: ref.watch(scrollControllerProvider),
+        
           slivers: [
+
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, index) {

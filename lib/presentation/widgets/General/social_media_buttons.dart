@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
+import 'package:my_portfolio/presentation/providers/media_provider.dart';
 
 class SocialMediaButtons extends StatelessWidget {
   const SocialMediaButtons({
@@ -47,7 +47,7 @@ class SocialMediaButtons extends StatelessWidget {
           onPressed: () {
             riverpodProvider.launchURL(2);
           },
-          icon: const Icon(FontAwesomeIcons.facebook),
+          icon: const Icon(FontAwesomeIcons.youtube),
           color: color,
         ),
         const SizedBox(width: 10),

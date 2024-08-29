@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/config/providers/information_projects_prov.dart';
+import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
 import 'package:swipe_deck/swipe_deck.dart';
 import 'image_project_card.dart';
 

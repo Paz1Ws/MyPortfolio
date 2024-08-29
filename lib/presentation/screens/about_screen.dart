@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:my_portfolio/config/providers/media_provider.dart';
+import 'package:my_portfolio/presentation/providers/media_provider.dart';
 import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
 
 class AboutScreen extends ConsumerWidget {
