@@ -2,49 +2,50 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class ButtonPlayer extends StatefulWidget {
-  const ButtonPlayer({super.key});
+  final String audioUrl; // Provide the audio URL in the constructor
+
+  const ButtonPlayer({super.key, required this.audioUrl});
 
   @override
   _ButtonPlayerState createState() => _ButtonPlayerState();
 }
 
 class _ButtonPlayerState extends State<ButtonPlayer> {
-  AudioPlayer audioPlayer = AudioPlayer();
-
-  bool isPlaying = false;
-  Future<void> playAudio(String url) async {
-    await audioPlayer.play(AssetSource(url));
-  }
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  bool _isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    audioPlayer = AudioPlayer();
+    _audioPlayer.setReleaseMode(ReleaseMode.loop); // Set loop mode once
 
-    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    // Pre-load audio for potentially faster playback (optional)
+    _audioPlayer.audioCache.load(widget.audioUrl);
   }
 
   @override
   void dispose() {
-    audioPlayer.dispose();
+    _audioPlayer.dispose();
     super.dispose();
+  }
+
+  void togglePlayback() async {
+    if (_isPlaying) {
+      await _audioPlayer.pause();
+    } else {
+      await _audioPlayer.play(AssetSource(widget.audioUrl));
+    }
+    setState(() {
+      _isPlaying = !_isPlaying;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       icon:
-          Icon(isPlaying ? Icons.music_note_rounded : Icons.music_off_rounded),
-      onPressed: () async {
-        if (isPlaying) {
-          await audioPlayer.pause();
-        } else {
-          await playAudio('audio/BackMusic.mp3');
-        }
-        setState(() {
-          isPlaying = !isPlaying;
-        });
-      },
+          Icon(_isPlaying ? Icons.music_note_rounded : Icons.music_off_rounded),
+      onPressed: togglePlayback, // Use the togglePlayback method
     );
   }
 }

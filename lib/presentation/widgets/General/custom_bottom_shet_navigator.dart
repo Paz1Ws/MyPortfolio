@@ -1,8 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/presentation/providers/scroll_provider.dart';
 
 import '../../providers/navigations_prov.dart';
 
@@ -16,42 +15,37 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
         : Colors.black;
 
     return SizedBox(
-      height:
-          MediaQuery.of(context).size.height * 0.31, // Adjust height as needed
-      child: ListView.builder(
-        itemExtent: 40,
-        itemCount: 6, // Number of navigation options (modify as needed)
-        itemBuilder: (context, index) {
-          final text = getText(index, color);
-          if (text.data == 'Switch to Anywhere') {
-            final randomIndex = Random().nextInt(5) + 1;
-            return TextButton.icon(
-              onPressed: () {
-                ref
-                    .read(indexPagination.notifier)
-                    .update((state) => state = randomIndex);
-              },
-              label: text,
-            );
-          } else {
-            return TextButton.icon(
-              onPressed: () {
-                ref
-                    .read(indexPagination.notifier)
-                    .update((state) => state = index);
-              },
-              icon: getIcon(index, color),
-              label: text,
-            );
-          }
-        },
-      ),
-    );
+        height: MediaQuery.of(context).size.height *
+            0.30, // Adjust height as needed
+        child: ListView.builder(
+            itemExtent: 40,
+            itemCount: 6, // Number of navigation options (modify as needed)
+            itemBuilder: (context, index) {
+              final text = getText(index, color);
+              return TextButton.icon(
+                onPressed: () {
+                  ref
+                      .read(indexPagination.notifier)
+                      .update((state) => state = index);
+
+                  if (index == 0) {
+                    scrollToSection(0, context, ref);
+                  }
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    Navigator.of(context).pop();
+                  });
+                },
+                icon: getIcon(index, color),
+                label: text,
+              );
+            }));
   }
 }
 
 Widget getIcon(int index, Color color) {
   switch (index) {
+    case 0:
+      return Icon(FontAwesomeIcons.solidUser, color: color);
     case 1:
       return Icon(Icons.build, color: color);
     case 2:
@@ -69,6 +63,8 @@ Widget getIcon(int index, Color color) {
 
 Text getText(int index, Color color) {
   switch (index) {
+    case 0:
+      return Text('About Me', style: TextStyle(color: color));
     case 1:
       return Text('What I Do', style: TextStyle(color: color));
     case 2:
@@ -80,6 +76,6 @@ Text getText(int index, Color color) {
     case 5:
       return Text('Contact', style: TextStyle(color: color));
     default:
-      return Text('Switch to Anywhere', style: TextStyle(color: color));
+      return const Text('');
   }
 }

@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -60,17 +59,9 @@ Widget CertificationsSlider(double height, double width, WidgetRef ref) {
           alignment: Alignment.center,
           children: [
             Positioned.fill(
-              child: CarouselSlider(
-                carouselController: controller,
-                options: CarouselOptions(
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  enableInfiniteScroll: true,
-                  viewportFraction: 0.8,
-                  onPageChanged: (index, reason) =>
-                      ref.read(innerCurrentPageProvider.notifier).state = index,
-                ),
-                items: certificationImages
+              child: CarouselView(
+                itemExtent: 200,
+                children: certificationImages
                     .map((imagePath) => CertificationCard(image: imagePath))
                     .toList(),
               ),

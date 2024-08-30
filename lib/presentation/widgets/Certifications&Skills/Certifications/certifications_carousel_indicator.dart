@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CertificationsCarouselIndicator extends StatelessWidget {
@@ -19,7 +18,7 @@ class CertificationsCarouselIndicator extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: certificationImagesProvider.asMap().entries.map((entry) {
         return GestureDetector(
-          onTap: () => controller.animateToPage(entry.key,
+          onTap: () => controller.animateTo(entry.key.toDouble(),
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOut),
           child: Container(

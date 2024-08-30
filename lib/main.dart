@@ -14,6 +14,7 @@ class MainApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
     return MaterialApp(
+      title: 'My Portfolio',
         theme:
             theme.globalBrightnessisDark ? ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,

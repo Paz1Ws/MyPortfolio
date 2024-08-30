@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/presentation/providers/media_provider.dart';
+import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
 
 class ContactScreen extends StatelessWidget {
@@ -10,7 +10,7 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final socialButtons = MediaProvider();
+    final socialButtons = Information();
     double height = MediaQuery.of(context).size.height * 0.3;
     return ContentArea(
       borderRadius: const BorderRadius.all(

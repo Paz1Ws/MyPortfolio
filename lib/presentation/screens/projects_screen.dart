@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_portfolio/presentation/providers/media_provider.dart';
+import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/information_project_card.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProjectsScreen extends ConsumerWidget {
-  final riverpodProvider = MediaProvider();
+  final riverpodProvider = Information();
 
   ProjectsScreen({super.key});
 
@@ -29,73 +30,74 @@ class ProjectsScreen extends ConsumerWidget {
               height: MediaQuery.of(context).size.height * 0.4,
             ),
           ),
-          Align(
-            alignment: Alignment.center,
+          Expanded(
+            child: Opacity(
+              opacity: 0.5,
+              child: SizedBox.expand(
+                child: SvgPicture.asset(
+                  "assets/images/design/projects_background.svg",
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 80),
-                  child: ShaderMask(
-                    shaderCallback: (bounds) => const LinearGradient(
-                      colors: [
-                        Color(0xFF00BCD4),
-                        Color.fromRGBO(156, 39, 176, 1),
-                        Colors.deepPurpleAccent,
-                      ],
-                    ).createShader(bounds),
-                    child: Text(
-                      "All my Projects till the moment",
-                      style: GoogleFonts.ubuntuMono(
-                        decoration: TextDecoration.underline,
-                        decorationThickness: 2,
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                      ),
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                    colors: [
+                      Color(0xFF00BCD4),
+                      Color.fromRGBO(156, 39, 176, 1),
+                      Colors.deepPurpleAccent,
+                    ],
+                  ).createShader(bounds),
+                  child: Text(
+                    "All my Projects till the moment",
+                    style: GoogleFonts.ubuntuMono(
+                      decoration: TextDecoration.underline,
+                      decorationThickness: 2,
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                Flexible(
-                  fit: FlexFit.tight,
-                  child: ShaderMask(
-                    shaderCallback: (bounds) => const LinearGradient(
-                      colors: [
-                        Color.fromARGB(255, 120, 24, 136),
-                        Color.fromARGB(255, 170, 45, 192),
-                      ],
-                    ).createShader(bounds),
-                    child: Text(
-                      "Showcases of my passion for innovation",
-                      textAlign: TextAlign.center,
-                      style: GoogleFonts.josefinSans(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                    colors: [
+                      Color.fromARGB(255, 120, 24, 136),
+                      Color.fromARGB(255, 170, 45, 192),
+                    ],
+                  ).createShader(bounds),
+                  child: Text(
+                    "Showcases of my passion for innovation",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.josefinSans(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+                Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        child: const ProjectsSwiper(),
+                      ),
+                      InformationCards(index: selectedProjectIndex)
+                    ],
                   ),
                 ),
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.25,
-              left: MediaQuery.of(context).size.width * 0.1,
-            ),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.3,
-              child: const ProjectsSwiper(),
-            ),
-          ),
-            Padding(
-            padding: EdgeInsets.only(
-                top: MediaQuery.sizeOf(context).height * 0.35,
-                right: MediaQuery.sizeOf(context).width * 0.1),
-            child: Align(
-                alignment: Alignment.centerRight,
-                child: InformationCards(index: selectedProjectIndex)),
-          )
         ],
       ),
     );

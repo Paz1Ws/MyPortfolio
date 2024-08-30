@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/widgets/WhatIDo/desing_process.dart';
 import 'package:my_portfolio/presentation/widgets/WhatIDo/name_icon.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 final List<DesignProcess> designProcesses = [
   DesignProcess(
@@ -58,12 +59,23 @@ class ServiceSection extends StatelessWidget {
         children: [
           Positioned(
             top: -MediaQuery.of(context).size.height * 0.01,
-            left: -MediaQuery.of(context).size.width * 0.25,
+            left: -MediaQuery.of(context).size.width * 0.2,
             child: Opacity(
               opacity: 0.5,
               child: Image.asset(
                 "assets/images/tech/flutter_bird.png",
                 fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Opacity(
+              opacity: 0.5,
+              child: SizedBox.expand(
+                child: SvgPicture.asset(
+                  "assets/images/design/whatido_background.svg",
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -110,7 +122,7 @@ class ServiceSection extends StatelessWidget {
                 Text(
                   "I'm a skilled professional who delivers excellent results.",
                   style: GoogleFonts.josefinSans(
-                    color: Colors.grey[400],
+                    color: Colors.grey[800],
                     fontSize: 18.0,
                   ),
                 ),

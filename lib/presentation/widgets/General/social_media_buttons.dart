@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_portfolio/presentation/providers/media_provider.dart';
+import 'package:my_portfolio/config/constants/general_information.dart';
 
 class SocialMediaButtons extends StatelessWidget {
   const SocialMediaButtons({
@@ -9,7 +9,7 @@ class SocialMediaButtons extends StatelessWidget {
     required this.alignment,
   });
 
-  final MediaProvider riverpodProvider;
+  final Information riverpodProvider;
   final MainAxisAlignment alignment;
 
   @override
