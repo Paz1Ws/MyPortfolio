@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CertificationsScreen extends StatefulWidget {
   const CertificationsScreen({super.key});
@@ -14,25 +15,18 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          SizedBox(
-            width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height - 100,
-            child: const CertificationsView(),
-          ),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height - 500,
-            left: -100,
-            child: Image.asset(
-              "assets/images/design/dots_globe_grey.png",
-              color: const Color(0xFF00BCD4),
+          Opacity(
+            opacity: 0.5,
+            child: SizedBox.expand(
+              child: SvgPicture.asset(
+                "assets/images/design/certifications_background.svg",
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 2,
-            right: -100,
-            child: Image.asset(
-              "assets/images/design/blob_black.png",
-              height: MediaQuery.sizeOf(context).height / 3,
+          Center(
+            child: Expanded(
+              child: const CertificationsView(),
             ),
           ),
         ]),

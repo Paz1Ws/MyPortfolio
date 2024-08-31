@@ -27,10 +27,9 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
                   ref
                       .read(indexPagination.notifier)
                       .update((state) => state = index);
+                  scrollToSection(ref.watch(indexPagination), context, ref);
 
-                  if (index == 0) {
-                    scrollToSection(0, context, ref);
-                  }
+                 
                   Future.delayed(const Duration(milliseconds: 500), () {
                     Navigator.of(context).pop();
                   });

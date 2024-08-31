@@ -13,7 +13,8 @@ class Information {
   ];
   final List<Uri> projectsLinks = [
     Uri.parse("https://github.com/Paz1Ws/JobMatch"),
-    Uri.parse("https://github.com/Paz1Ws/billboard")
+    Uri.parse("https://github.com/Paz1Ws/billboard"),
+    Uri.parse("https://github.com/Paz1Ws/PartialFitnessApp"),
   ];
   void launchURL(int i) async {
     Uri url = Information().socialMediaLinks[i];

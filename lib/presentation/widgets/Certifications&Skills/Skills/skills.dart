@@ -8,6 +8,7 @@ class Skills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ShaderMask(
           shaderCallback: (bounds) => const LinearGradient(

@@ -7,15 +7,27 @@ class ExpAndTech extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Skills(),
-            // Experience(), Cooming Soon
-          ],
-        ),
+        child: Stack(children: [
+          Skills(),
+          Positioned(
+            top: MediaQuery.sizeOf(context).height - 500,
+            left: -100,
+            child: Image.asset(
+              "assets/images/design/dots_globe_grey.png",
+              color: const Color(0xFF00BCD4),
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.sizeOf(context).height / 2,
+            right: -100,
+            child: Image.asset(
+              "assets/images/design/blob_black.png",
+              height: MediaQuery.sizeOf(context).height / 3,
+            ),
+          ),
+        ]),
       ),
     );
   }

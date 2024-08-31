@@ -1,23 +1,24 @@
 class ProjectsInformation {
-  String title_billboard = 'Ultimate Billboard 2024: ';
-  String billboard =
-      "Gallery of movies in cinema, popular and upcoming, as well as TV content section and favorite movies section, with integrated search engine!";
-  List<String> billboard_icons = [
+  String fitbody =
+      "I developed FitBody, the launch application of my YouTube channel, Flutterize. I built a complete fitness app that offers the integration of personalized training plans, progress tracking and an online community.\n\nUsing Flutter and a design in Figma, implement an intuitive and fluid user interface, integrating Riverpod for status management as to optimize performance.\n\nThis project took me 3 weeks of deep work which allowed me to perfect my skills in solving complex problems, agile development and design of attractive user interfaces.";
+  List<String> fitbody_icons = [
     'assets/images/tech/flutter.png',
-    'assets/images/tech/firebase.png'
+    'assets/images/tech/figma.png',
+    'assets/images/tech/riverpod.png'
   ];
-  String title_jobMatch = 'JobMatch';
+
   String jobMatch =
-      "JobMatch is a platform that allows you to find the job that best suits your skills and preferences, as well as the possibility of finding the best candidates for your company!";
+      'I created JobMatch to revolutionize the way we find jobs. \n\nUsing Flutter, I designed an intuitive and effective app, a smooth user experience with smooth animations and a focus on accessibility. \n\nThe modular and scalable architecture, combined with Firebase, for an efficient management of users, data and notifications in real time, and CV reading through an API managed with Nest.js, guarantee a personalized experience from talent search to candidate management. \n\nJobMatch simplifies the recruitment process.';
+
   List<String> jobMatch_icons = [
     'assets/images/tech/flutter.png',
     'assets/images/tech/firebase.png',
     'assets/images/tech/nest.js.png'
   ];
-  String Proyect3 =
-      'Building... \n You can see another type of proyects in my GitHub';
-  String Proyect4 =
-      'Building... \n You can see another type of proyects in my GitHub';
-  String Proyect5 =
-      'Building... \n You can see another type of proyects in my GitHub';
+  String billboard =
+      "Experience the ultimate movie-going app with Ultimate Billboard.\n\n Discover the latest cinema releases, explore popular and upcoming movies, and dive into a curated selection of TV content. \n\nEasily search for your favorite movies and keep track of your watchlist. Built with Flutter for a seamless, cross-platform experience.";
+  List<String> billboard_icons = [
+    'assets/images/tech/flutter.png',
+    'assets/images/tech/firebase.png'
+  ];
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
-import 'package:my_portfolio/presentation/providers/information_projects_prov.dart';
+import 'package:my_portfolio/config/constants/information_projects_prov.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/information_project_card.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,14 +30,12 @@ class ProjectsScreen extends ConsumerWidget {
               height: MediaQuery.of(context).size.height * 0.4,
             ),
           ),
-          Expanded(
-            child: Opacity(
-              opacity: 0.5,
-              child: SizedBox.expand(
-                child: SvgPicture.asset(
-                  "assets/images/design/projects_background.svg",
-                  fit: BoxFit.cover,
-                ),
+          Opacity(
+            opacity: 0.5,
+            child: SizedBox.expand(
+              child: SvgPicture.asset(
+                "assets/images/design/projects_background.svg",
+                fit: BoxFit.cover,
               ),
             ),
           ),
@@ -84,14 +82,42 @@ class ProjectsScreen extends ConsumerWidget {
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
                 Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.3,
-                        child: const ProjectsSwiper(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.3,
+                            child: ProjectsSwiper(),
+                          ),
+                          SizedBox(
+                              width: MediaQuery.sizeOf(context).width * 0.08),
+                          InformationCards(index: selectedProjectIndex)
+                        ],
                       ),
-                      InformationCards(index: selectedProjectIndex)
+                      SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+                      RichText(
+                          text: TextSpan(
+                        text: '<< Swipe to the sides >>',
+                        style: GoogleFonts.tangerine(
+                            shadows: [
+                              Shadow(
+                                  color: Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? Colors.black
+                                      : Colors.white,
+                                  offset: const Offset(2, 2),
+                                  blurRadius: 2)
+                            ],
+                            fontSize: 40,
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black,
+                            fontWeight: FontWeight.bold),
+                      ))
                     ],
                   ),
                 ),

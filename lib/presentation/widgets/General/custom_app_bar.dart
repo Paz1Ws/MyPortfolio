@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/presentation/providers/navigations_prov.dart';
-import 'package:my_portfolio/presentation/providers/scroll_provider.dart';
 import 'package:my_portfolio/presentation/widgets/About/audioplayer_button.dart';
 import 'package:my_portfolio/presentation/widgets/About/theme_button.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_bottom_shet_navigator.dart';
@@ -20,10 +19,6 @@ class CustomAppBar extends ConsumerStatefulWidget
 class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
-    final indexofPagination = ref.watch(indexPagination);
-
-    scrollToSection(indexofPagination, context, ref);
-
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width / 3),
