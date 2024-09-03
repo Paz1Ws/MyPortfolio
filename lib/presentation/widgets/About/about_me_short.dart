@@ -26,7 +26,7 @@ class AboutMeShort extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Hello, I'm",
+            "Hello",
             style: GoogleFonts.ubuntuMono(
               fontSize: 40,
             ),
