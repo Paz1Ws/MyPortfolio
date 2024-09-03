@@ -2,6 +2,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/presentation/providers/show_more_inf_provider.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_information.dart';
 import 'package:my_portfolio/presentation/widgets/General/available_to_work_container.dart';
@@ -46,15 +47,13 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
                     duration: const Duration(seconds: 2),
                     child: Image.asset(
                         "assets/images/design/blob_small_bean_ash.png",
-                        color: const Color.fromARGB(36, 36, 36, 35)
-                            .withOpacity(0.2),
+                        color: AppColors.lightBlack.withOpacity(0.2),
                         height: size.height * 1.8))
                 : SlideInRight(
                     duration: const Duration(seconds: 2),
                     child: Image.asset(
                         "assets/images/design/blob_small_bean_ash.png",
-                        color: const Color.fromARGB(36, 36, 36, 35)
-                            .withOpacity(0.2),
+                        color: AppColors.lightBlack.withOpacity(0.2),
                         height: size.height * 1.2),
                   ),
           ),

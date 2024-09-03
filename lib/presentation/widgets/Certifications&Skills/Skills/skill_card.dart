@@ -14,8 +14,8 @@ class CardProfile extends StatelessWidget {
       required this.url});
 
   Future<void> launchURL(Uri url) async {
-    if (await canLaunch(url.toString())) {
-      await launch(url.toString());
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
     } else {
       log('Could not launch $url');
     }

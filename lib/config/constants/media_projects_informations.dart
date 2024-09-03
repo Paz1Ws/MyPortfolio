@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_portfolio/presentation/widgets/Projects/information.dart';
+import 'package:my_portfolio/config/constants/projects_inforation.dart';
 
 final selectedProjectIndexProvider = StateProvider((ref) => 0);
 final projectImagesProvider = StateProvider((ref) => const [

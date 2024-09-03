@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
-import 'package:my_portfolio/config/constants/information_projects_prov.dart';
+import 'package:my_portfolio/config/constants/media_projects_informations.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_subtitles.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/information_project_card.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,7 +30,7 @@ class ProjectsScreen extends ConsumerWidget {
               "assets/images/design/blob_femur_ash.png",
               color: Theme.of(context).brightness == Brightness.dark
                   ? Colors.white.withOpacity(0.1)
-                  : const Color.fromARGB(36, 36, 36, 35),
+                  : AppColors.lightBlack,
               height: MediaQuery.of(context).size.height * 0.4,
             ),
           ),
@@ -45,40 +49,11 @@ class ProjectsScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [
-                      Color(0xFF00BCD4),
-                      Color.fromRGBO(156, 39, 176, 1),
-                      Colors.deepPurpleAccent,
-                    ],
-                  ).createShader(bounds),
-                  child: Text(
-                    "All my Projects till the moment",
-                    style: GoogleFonts.ubuntuMono(
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 2,
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                GradientForTitles(
+                  title: "All my Projects till the moment",
                 ),
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 120, 24, 136),
-                      Color.fromARGB(255, 170, 45, 192),
-                    ],
-                  ).createShader(bounds),
-                  child: Text(
-                    "Showcases of my passion for innovation",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.josefinSans(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                GradientForSubtitles(
+                  title: "Showcases of my passion for innovation",
                 ),
                 SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
                 Center(
@@ -100,24 +75,8 @@ class ProjectsScreen extends ConsumerWidget {
                       SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
                       RichText(
                           text: TextSpan(
-                        text: '<< Swipe to the sides >>',
-                        style: GoogleFonts.tangerine(
-                            shadows: [
-                              Shadow(
-                                  color: Theme.of(context).brightness ==
-                                          Brightness.dark
-                                      ? Colors.black
-                                      : Colors.white,
-                                  offset: const Offset(2, 2),
-                                  blurRadius: 2)
-                            ],
-                            fontSize: 40,
-                            color:
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? Colors.white
-                                    : Colors.black,
-                            fontWeight: FontWeight.bold),
-                      ))
+                              text: '<< Swipe to the sides >>',
+                              style: AppFonts.tangerine(context)))
                     ],
                   ),
                 ),

@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
-import 'package:my_portfolio/config/constants/information_projects_prov.dart';
+import 'package:my_portfolio/config/constants/media_projects_informations.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {
@@ -21,7 +22,7 @@ class InformationCards extends ConsumerWidget {
       width: size.width * 0.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: const Color.fromARGB(36, 36, 36, 35),
+        color: AppColors.lightBlack,
       ),
       child: IntrinsicHeight(
         child: Padding(
@@ -64,7 +65,7 @@ class InformationCards extends ConsumerWidget {
           style: GoogleFonts.josefinSans(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Colors.lightBlueAccent[400]!,
+            color: AppColors.cyan,
           ),
         ),
         Wrap(

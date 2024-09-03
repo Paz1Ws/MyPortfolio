@@ -13,11 +13,12 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
+
     return MaterialApp(
-      title: 'My Portfolio',
+        title: 'My Portfolio',
         theme:
             theme.globalBrightnessisDark ? ThemeData.dark() : ThemeData.light(),
         debugShowCheckedModeBanner: false,
-        home: const GlobalScreen());
+        home: GlobalScreen());
   }
 }

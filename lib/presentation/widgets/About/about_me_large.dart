@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/presentation/providers/show_more_inf_provider.dart';
-
 
 class AboutMeLarge extends StatelessWidget {
   const AboutMeLarge({
@@ -40,7 +40,7 @@ class AboutMeLarge extends StatelessWidget {
                     text: 'beautiful and functional user experiences',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Color.fromRGBO(0, 188, 212, 1), //
+                      color: AppColors.cyan, //
                     )),
                 TextSpan(
                   text:
@@ -49,15 +49,15 @@ class AboutMeLarge extends StatelessWidget {
                 TextSpan(
                   text: 'Youtube Channel: ',
                   style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Color(0xFF00BCD4), // ),
-                  ),
+                      fontWeight: FontWeight.bold, color: AppColors.cyan // ),
+                      ),
                 ),
                 TextSpan(
                   text: 'Flutterize',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color:
-                        Colors.purple, // Adjust the height of the gradient here
+                    color: AppColors
+                        .deepPurple, // Adjust the height of the gradient here
                   ),
                 ),
                 TextSpan(
@@ -67,7 +67,7 @@ class AboutMeLarge extends StatelessWidget {
                 TextSpan(
                   text: 'Social Skills:\n',
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.blue),
+                      fontWeight: FontWeight.bold, color: AppColors.cyan),
                 ),
                 TextSpan(
                   text: '- Excellent communication and interpersonal skills\n',
@@ -157,7 +157,7 @@ class InformationSwitcher extends ConsumerWidget {
               ],
             ),
           ),
-          color: const Color(0xFF00BCD4),
+          color: AppColors.cyan,
         )
       ],
     );

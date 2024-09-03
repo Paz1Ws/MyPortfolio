@@ -2,9 +2,12 @@ import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_large.dart';
 
-import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
+import 'package:my_portfolio/presentation/widgets/Contact/social_media_buttons.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
 
 class AboutMeShort extends StatelessWidget {
   const AboutMeShort({
@@ -31,21 +34,8 @@ class AboutMeShort extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          ShaderMask(
-            shaderCallback: (bounds) => const LinearGradient(
-              colors: [
-                Color(0xFF00BCD4),
-                Color.fromRGBO(156, 39, 176, 1),
-                Colors.deepPurpleAccent
-              ],
-            ).createShader(bounds),
-            child: Text(
-              "Christopher Paz",
-              style: GoogleFonts.ubuntuMono(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          GradientForTitles(
+            title: "Christopher Paz",
           ),
           const SizedBox(
             height: 5,
@@ -56,12 +46,7 @@ class AboutMeShort extends StatelessWidget {
                 TextSpan(
                   text:
                       "A Cross-Platform Developer\nworking with Flutter to make\nyour ideas come real!",
-                  style: GoogleFonts.josefinSans(
-                    color: const Color.fromRGBO(0, 188, 212, 1), // Cyan
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold,
-                    height: 1.2, // Adjust the line spacing here
-                  ),
+                  style: AppFonts.josefinSans24,
                 ),
               ],
             ),
@@ -76,9 +61,32 @@ class AboutMeShort extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          SocialMediaButtons(
-              riverpodProvider: information,
-              alignment: MainAxisAlignment.start),
+          Column(
+            children: [
+              SocialMediaButtons(
+                  riverpodProvider: information,
+                  alignment: MainAxisAlignment.start),
+              Padding(
+                padding: const EdgeInsets.only(right: 220),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text("flutterize1@gmail.com",
+                        style: AppFonts.josefinSans14.copyWith(
+                          color: AppColors.brightness(context),
+                        )),
+                    Image.asset(
+                      'assets/images/design/arrow.png',
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.contain,
+                      color: AppColors.softPurple,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

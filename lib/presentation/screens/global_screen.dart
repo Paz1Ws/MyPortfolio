@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_portfolio/presentation/providers/scroll_provider.dart';
 import 'package:my_portfolio/presentation/screens/about_screen.dart';
@@ -10,11 +11,30 @@ import 'package:my_portfolio/presentation/screens/what_I_do.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_app_bar.dart';
 import 'exp&tech_screen.dart';
 
-class GlobalScreen extends ConsumerWidget {
-  const GlobalScreen({super.key});
+class GlobalScreen extends ConsumerStatefulWidget {
+  @override
+  ConsumerState<GlobalScreen> createState() => _GlobalScreenState();
+}
+
+class _GlobalScreenState extends ConsumerState<GlobalScreen> {
+  final FocusNode _focusNode = FocusNode();
 
   @override
-  Widget build(BuildContext context, ref) {
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _focusNode.requestFocus();
+    });
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final ScrollController scrollController =
         ref.watch(scrollControllerProvider);
 
@@ -32,7 +52,26 @@ class GlobalScreen extends ConsumerWidget {
     ];
 
     return Scaffold(
-      body: CustomScrollView(
+        body: KeyboardListener(
+      focusNode: _focusNode,
+      onKeyEvent: (KeyEvent event) {
+        if (event is KeyDownEvent) {
+          if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
+            scrollController.animateTo(
+              scrollController.offset + 100.0,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          } else if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
+            scrollController.animateTo(
+              scrollController.offset - 100.0,
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+            );
+          }
+        }
+      },
+      child: CustomScrollView(
         controller: scrollController,
         slivers: [
           const SliverAppBar(
@@ -68,6 +107,6 @@ class GlobalScreen extends ConsumerWidget {
           ),
         ],
       ),
-    );
+    ));
   }
 }

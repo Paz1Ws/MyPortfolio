@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
 import 'package:my_portfolio/presentation/widgets/WhatIDo/desing_process.dart';
 import 'package:my_portfolio/presentation/widgets/WhatIDo/name_icon.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,46 +89,27 @@ class ServiceSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  "Productive, Experienced, Skilled, Creative",
-                  style: GoogleFonts.josefinSans(
-                    fontWeight: FontWeight.bold,
-                    height: 1.8,
-                    letterSpacing: 2,
-                    fontSize: 24.0,
-                  ),
-                ),
+                Text("Productive, Experienced, Skilled, Creative",
+                    style: AppFonts.josefinSans24.copyWith(
+                      height: 1.8,
+                      letterSpacing: 2,
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [
-                      Color(0xFF00BCD4),
-                      Color.fromRGBO(156, 39, 176, 1),
-                      Colors.deepPurpleAccent
-                    ],
-                  ).createShader(bounds),
-                  child: Text(
-                    "What I Do?",
-                    style: GoogleFonts.ubuntuMono(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 50,
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 2,
-                    ),
-                  ),
+                GradientForTitles(
+                  title: "What I Do?",
                 ),
                 const SizedBox(
                   height: 5,
                 ),
                 Text(
-                  "I'm a skilled professional who delivers excellent results.",
-                  style: GoogleFonts.josefinSans(
-                    color: Colors.grey[800],
-                    fontSize: 18.0,
-                  ),
-                ),
+                    "I'm a skilled professional who delivers excellent results.",
+                    style: AppFonts.josefinSans14.copyWith(
+                      color: AppColors.grey800,
+                      fontSize: 18,
+                      height: 1.8,
+                    )),
                 const SizedBox(
                   height: 20,
                 ),
@@ -151,7 +135,7 @@ class ServiceSection extends StatelessWidget {
                                       width: 80,
                                       height: 80,
                                       decoration: BoxDecoration(
-                                        color: Colors.grey[900],
+                                        color: AppColors.grey800,
                                         borderRadius: BorderRadius.circular(80),
                                       ),
                                       child: Icon(

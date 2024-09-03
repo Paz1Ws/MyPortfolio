@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/presentation/providers/certifications_prov.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications_card.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_subtitles.dart';
+import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
 
 class CertificationsView extends ConsumerStatefulWidget {
   const CertificationsView({super.key});
@@ -29,41 +32,12 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
             constraints: BoxConstraints(maxWidth: size.width * .8),
             child: Column(
               children: [
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [
-                      Color(0xFF00BCD4),
-                      Color.fromRGBO(156, 39, 176, 1),
-                      Colors.deepPurpleAccent
-                    ],
-                  ).createShader(bounds),
-                  child: Text(
-                    "Achievements & Certifications",
-                    style: GoogleFonts.ubuntuMono(
-                      decoration: TextDecoration.underline,
-                      decorationThickness: 2,
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                GradientForTitles(
+                  title: "Achievements & Certifications",
                 ),
                 const SizedBox(height: 10),
-                ShaderMask(
-                  shaderCallback: (bounds) => const LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 120, 24, 136),
-                      Color.fromARGB(255, 170, 45, 192),
-                    ],
-                  ).createShader(bounds),
-                  child: Text(
-                    "Udemy | DevTalles | Hackaton Awards",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.josefinSans(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
+                GradientForSubtitles(
+                  title: "Udemy | DevTalles | Hackaton Awards",
                 ),
               ],
             ),
@@ -86,13 +60,11 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
             items: certificationImages.map((imagePath) {
               return Builder(
                 builder: (BuildContext context) {
-                  return Expanded(
-                    child: GestureDetector(
-                        onTap: () {
-                          _showImageDialog(context, imagePath);
-                        },
-                        child: CertificationCard(image: imagePath)),
-                  );
+                  return GestureDetector(
+                      onTap: () {
+                        _showImageDialog(context, imagePath);
+                      },
+                      child: CertificationCard(image: imagePath));
                 },
               );
             }).toList(),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
-import 'package:my_portfolio/presentation/widgets/General/social_media_buttons.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
+import 'package:my_portfolio/presentation/widgets/Contact/social_media_buttons.dart';
 
 class ContactScreen extends StatelessWidget {
   const ContactScreen({
@@ -22,11 +24,8 @@ class ContactScreen extends StatelessWidget {
           Positioned(
             top: -20,
             left: -35,
-            child: Image.asset(
-              "assets/images/design/box_cover_gold.png",
-              height: height * 0.5,
-              color: const Color.fromRGBO(156, 39, 176, 1),
-            ),
+            child: Image.asset("assets/images/design/box_cover_gold.png",
+                height: height * 0.5, color: AppColors.softPurple),
           ),
           Positioned(
             bottom: -50,
@@ -40,30 +39,45 @@ class ContactScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                "Let's work together",
-                style: GoogleFonts.josefinSans(
-                  color: const Color.fromARGB(255, 255, 255, 255), // Cyan
-                  fontSize: 32.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Text("Let's work together", style: AppFonts.josefinSans32),
               const SizedBox(height: 26),
               Text(
                 "Have a project in mind? \nLet's discuss and work together",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.josefinSans(
-                  color: const Color.fromARGB(255, 18, 209, 234), // Cyan
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppFonts.josefinSans24,
               ),
               const SizedBox(
                 height: 30,
               ),
-              SocialMediaButtons(
-                  riverpodProvider: socialButtons,
-                  alignment: MainAxisAlignment.center),
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    SocialMediaButtons(
+                        riverpodProvider: socialButtons,
+                        alignment: MainAxisAlignment.center),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text("flutterize1@gmail.com",
+                              style: AppFonts.josefinSans14.copyWith(
+                                color: AppColors.brightness(context),
+                              )),
+                          Image.asset(
+                            'assets/images/design/arrow.png',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.contain,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ],
@@ -89,7 +103,6 @@ class ContentArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
       decoration: decoration ??
           BoxDecoration(
             image: const DecorationImage(

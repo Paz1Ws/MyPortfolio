@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
+import 'package:my_portfolio/config/theme/global_theme.dart';
 
 class AvailableToWork extends StatefulWidget {
   const AvailableToWork({super.key});
@@ -78,17 +80,12 @@ class _AvailableToWorkState extends State<AvailableToWork>
             },
           ),
           const SizedBox(width: 8),
-          Text(
-            'Available To Work',
-            style: GoogleFonts.josefinSans(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? Colors.black
-                  : Colors.white,
-              fontSize: 16.0,
-              fontWeight: FontWeight.bold,
-              height: 1.2, // Adjust the line spacing here
-            ),
-          ),
+          Text('Available To Work',
+              style: AppFonts.josefinSans.copyWith(
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.black
+                    : Colors.white,
+              )),
         ],
       ),
     );
