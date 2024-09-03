@@ -5,7 +5,6 @@ import 'package:my_portfolio/presentation/providers/show_more_inf_provider.dart'
 import 'package:my_portfolio/presentation/widgets/About/about_me_large.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_photo.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_short.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutMeInformation extends ConsumerWidget {
   const AboutMeInformation({
