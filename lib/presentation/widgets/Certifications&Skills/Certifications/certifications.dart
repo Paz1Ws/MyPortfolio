@@ -19,7 +19,6 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
   @override
   Widget build(BuildContext context) {
     final certificationImages = certificationImagesProvider;
-
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
