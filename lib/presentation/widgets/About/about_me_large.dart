@@ -4,7 +4,9 @@ import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:my_portfolio/presentation/providers/show_more_inf_provider.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutMeLarge extends StatelessWidget {
   const AboutMeLarge({
@@ -20,17 +22,24 @@ class AboutMeLarge extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlipInY(
         child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: ResponsiveBreakpoints.of(context).isMobile
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ConstrainedBox(
           constraints: BoxConstraints(
-            maxWidth: size.width * 0.4,
+            maxWidth: ResponsiveBreakpoints.of(context).isMobile
+                ? size.width * 0.8
+                : size.width * 0.4,
             minHeight: size.height * 0.4,
           ),
           child: RichText(
             text: TextSpan(
-              style: DefaultTextStyle.of(context).style,
+              style: AppFonts.josefinSans14.copyWith(
+                color: AppColors.brightness(context),
+                fontSize: ResponsiveBreakpoints.of(context).isMobile ? 14 : 18,
+              ),
               children: <TextSpan>[
                 TextSpan(
                   text:
@@ -97,8 +106,8 @@ class AboutMeLarge extends StatelessWidget {
                 ),
               ],
             ),
-            textAlign: TextAlign.left,
-            maxLines: 20,
+            textAlign: TextAlign.start,
+            maxLines: 30,
             overflow: TextOverflow.ellipsis,
           ),
         ),
@@ -124,6 +133,7 @@ class InformationSwitcher extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           text,

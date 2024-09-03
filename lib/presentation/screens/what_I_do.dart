@@ -36,11 +36,6 @@ class ServiceSection extends StatelessWidget {
       color: Colors.green[400]!,
     ),
     NameIconColor(
-      title: "Content Creation",
-      iconData: FontAwesomeIcons.youtube,
-      color: Colors.red[400]!,
-    ),
-    NameIconColor(
       title: "Web Development",
       iconData: Icons.web,
       color: Colors.yellow[400]!,
@@ -50,14 +45,15 @@ class ServiceSection extends StatelessWidget {
       iconData: Icons.key,
       color: Colors.blue[400]!,
     ),
+    NameIconColor(
+      title: "Content Creation",
+      iconData: FontAwesomeIcons.youtube,
+      color: Colors.red[400]!,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return _buildUi(context);
-  }
-
-  Widget _buildUi(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [

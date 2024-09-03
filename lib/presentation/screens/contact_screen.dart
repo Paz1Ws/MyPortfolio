@@ -54,7 +54,7 @@ class ContactScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     SocialMediaButtons(
-                        riverpodProvider: socialButtons,
+                        linksProvider: socialButtons,
                         alignment: MainAxisAlignment.center),
                     Padding(
                       padding: const EdgeInsets.only(right: 20),

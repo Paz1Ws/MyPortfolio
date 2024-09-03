@@ -4,6 +4,7 @@ import 'package:my_portfolio/presentation/providers/navigations_prov.dart';
 import 'package:my_portfolio/presentation/widgets/About/audioplayer_button.dart';
 import 'package:my_portfolio/presentation/widgets/About/theme_button.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_bottom_shet_navigator.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class CustomAppBar extends ConsumerStatefulWidget
     implements PreferredSizeWidget {
@@ -20,8 +21,11 @@ class _CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width / 3),
+      padding: ResponsiveBreakpoints.of(context).isMobile
+          ? EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width / 7)
+          : EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width / 3),
       child: AppBar(
         leading: IconButton(
           onPressed: () {

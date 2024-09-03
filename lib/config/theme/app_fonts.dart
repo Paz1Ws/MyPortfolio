@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AppFonts {
   static final TextStyle josefinSans = GoogleFonts.josefinSans(
