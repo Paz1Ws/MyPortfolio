@@ -15,15 +15,6 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          Opacity(
-            opacity: 0.5,
-            child: SizedBox.expand(
-              child: SvgPicture.asset(
-                "assets/images/design/certifications_background.svg",
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
           Center(
             child: Expanded(
               child: const CertificationsView(),

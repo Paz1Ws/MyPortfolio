@@ -68,17 +68,6 @@ class ServiceSection extends StatelessWidget {
               ),
             ),
           ),
-          Expanded(
-            child: Opacity(
-              opacity: 0.5,
-              child: SizedBox.expand(
-                child: SvgPicture.asset(
-                  "assets/images/design/whatido_background.svg",
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ),
           Padding(
             padding:
                 EdgeInsets.only(left: MediaQuery.of(context).size.width / 7),

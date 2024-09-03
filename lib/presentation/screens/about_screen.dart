@@ -50,7 +50,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
                             child: Image.asset(
                                 "assets/images/design/blob_small_bean_ash.png",
                                 color: AppColors.lightBlack.withOpacity(0.2),
-                                height: size.height * 5))
+                                height: size.height * 1.8))
                         : SlideInRight(
                             duration: const Duration(seconds: 2),
                             child: Image.asset(
