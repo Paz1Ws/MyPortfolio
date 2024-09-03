@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/config/theme/app_fonts.dart';
@@ -35,6 +36,11 @@ class ServiceSection extends StatelessWidget {
       color: Colors.green[400]!,
     ),
     NameIconColor(
+      title: "Content Creation",
+      iconData: FontAwesomeIcons.youtube,
+      color: Colors.red[400]!,
+    ),
+    NameIconColor(
       title: "Web Development",
       iconData: Icons.web,
       color: Colors.yellow[400]!,
@@ -43,11 +49,6 @@ class ServiceSection extends StatelessWidget {
       title: "Backend Development",
       iconData: Icons.key,
       color: Colors.blue[400]!,
-    ),
-    NameIconColor(
-      title: "Github\n Open Source",
-      iconData: Icons.code,
-      color: Colors.orange[400]!,
     ),
   ];
 
