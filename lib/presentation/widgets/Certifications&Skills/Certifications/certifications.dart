@@ -41,32 +41,32 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
             ),
           ),
           SizedBox(height: size.height * .08),
-          // FlutterCarousel(
-          //   options: CarouselOptions(
-          //     enableInfiniteScroll: true,
-          //     viewportFraction: 0.5,
-          //     aspectRatio: 1,
-          //     autoPlayInterval: const Duration(milliseconds: 2500),
-          //     autoPlay: true,
-          //     autoPlayCurve: Curves.fastEaseInToSlowEaseOut,
-          //     enlargeStrategy: CenterPageEnlargeStrategy.scale,
-          //     autoPlayAnimationDuration: const Duration(milliseconds: 1000),
-          //     enlargeCenterPage: true,
-          //     height: size.height * .5,
-          //     showIndicator: false,
-          //   ),
-          //   items: certificationImages.map((imagePath) {
-          //     return Builder(
-          //       builder: (BuildContext context) {
-          //         return GestureDetector(
-          //             onTap: () {
-          //               _showImageDialog(context, imagePath);
-          //             },
-          //             child: CertificationCard(image: imagePath));
-          //       },
-          //     );
-          //   }).toList(),
-          // ),
+          FlutterCarousel(
+            options: CarouselOptions(
+              enableInfiniteScroll: true,
+              viewportFraction: 0.5,
+              aspectRatio: 1,
+              autoPlayInterval: const Duration(milliseconds: 2500),
+              autoPlay: true,
+              autoPlayCurve: Curves.fastEaseInToSlowEaseOut,
+              enlargeStrategy: CenterPageEnlargeStrategy.scale,
+              autoPlayAnimationDuration: const Duration(milliseconds: 1000),
+              enlargeCenterPage: true,
+              height: size.height * .5,
+              showIndicator: false,
+            ),
+            items: certificationImages.map((imagePath) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return GestureDetector(
+                      onTap: () {
+                        _showImageDialog(context, imagePath);
+                      },
+                      child: CertificationCard(image: imagePath));
+                },
+              );
+            }).toList(),
+          ),
         ],
       ),
     );
