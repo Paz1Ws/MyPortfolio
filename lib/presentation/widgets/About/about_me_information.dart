@@ -5,7 +5,7 @@ import 'package:my_portfolio/presentation/providers/show_more_inf_provider.dart'
 import 'package:my_portfolio/presentation/widgets/About/about_me_large.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_photo.dart';
 import 'package:my_portfolio/presentation/widgets/About/about_me_short.dart';
-
+import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutMeInformation extends ConsumerWidget {
   const AboutMeInformation({
@@ -39,9 +39,37 @@ class AboutMeInformation extends ConsumerWidget {
                           controller: _controller, information: information)),
             ],
           ),
-          AboutMePhoto(size: size),
+          SizedBox(width: size.width * 0.1),
+          Expanded(flex: 2, child: AboutMePhoto(size: size)),
         ],
       ),
     );
   }
+}
+
+Widget tabletAndDesktop(
+    BuildContext context, Size size, Ref ref, _controller, information) {
+  return Padding(
+    padding: EdgeInsets.only(left: size.width * 0.1, bottom: size.height * 0.1),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Align(
+              alignment: Alignment.centerLeft,
+              child: ref.watch(showMoreInformationProv)
+                  ? AboutMeLarge(size: size, controller: _controller)
+                  : AboutMeShort(
+                      controller: _controller, information: information),
+            ),
+          ],
+        ),
+        SizedBox(width: size.width * 0.1),
+        Expanded(flex: 2, child: AboutMePhoto(size: size)),
+      ],
+    ),
+  );
 }

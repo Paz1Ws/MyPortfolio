@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/config/theme/app_fonts.dart';
@@ -62,9 +61,9 @@ class ContactScreen extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text("flutterize1@gmail.com",
+                          SelectableText("flutterize1@gmail.com",
                               style: AppFonts.josefinSans14.copyWith(
-                                color: AppColors.brightness(context),
+                                color: Colors.white,
                               )),
                           Image.asset(
                             'assets/images/design/arrow.png',

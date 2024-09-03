@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/theme/app_fonts.dart';
-import 'package:my_portfolio/config/theme/global_theme.dart';
 
 class AvailableToWork extends StatefulWidget {
   const AvailableToWork({super.key});

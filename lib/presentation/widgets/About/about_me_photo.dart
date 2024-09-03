@@ -14,37 +14,27 @@ class AboutMePhoto extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 60),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Lottie.asset(
+    return Stack(
+      children: [
+        Center(
+          child: Lottie.asset(
             'assets/animations/BackgroundPhoto.json',
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
             filterQuality: FilterQuality.high,
-            width: size.width * 0.45,
-            height: size.height * 0.45,
+            width: size.width * 0.8,
+            height: size.height * 0.8,
           ),
-          Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.translationValues(0, -size.height * 0.19, 0),
-            child: ref.watch(showMoreInformationProv)
-                ? ZoomIn(
-                    child: CircleAvatar(
-                        radius: (size.width * 0.12 + size.height * 0.12) / 2,
-                        backgroundImage: const AssetImage(
-                            "assets/images/BlackFlutterize.png")),
-                  )
-                : ZoomIn(
-                    child: CircleAvatar(
-                      radius: (size.width * 0.12 + size.height * 0.12) / 2,
-                      backgroundImage: const AssetImage("assets/images/Me.jpg"),
-                    ),
-                  ),
+        ),
+        Center(
+          child: ZoomIn(
+            child: CircleAvatar(
+                radius: size.aspectRatio * 65,
+                backgroundImage: AssetImage(ref.watch(showMoreInformationProv)
+                    ? "assets/images/BlackFlutterize.png"
+                    : "assets/images/Me.jpg")),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
