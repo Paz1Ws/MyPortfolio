@@ -11,15 +11,41 @@ import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart'
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-class ProjectsScreen extends ConsumerWidget {
-  final riverpodProvider = Information();
+class ProjectsScreen extends ConsumerStatefulWidget {
 
-  ProjectsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
+ ConsumerState<ProjectsScreen> createState() => _ProjectsScreenState();
+}
 
+class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
+  final riverpodProvider = Information();
+
+  @override
+  Widget build(BuildContext context) {
+    final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
+  String _text = '<< Press me >>';
+  
+    // Future.delayed(Duration(seconds: 2), () {
+    //   setState(() {
+    //     _text = 'Swipe to the sides';
+        
+    //   });
+    //   Future.delayed(Duration(seconds: 2), () {
+    //     setState(() {
+    //       _text = '<< Press me >>';
+    //     });
+
+    //   });
+    // });
+  
+
+  @override
+  void initState() {
+    super.initState();
+ 
+  }
+ 
     return Scaffold(
       body: ResponsiveBreakpoints.of(context).isMobile? 
       
@@ -61,7 +87,7 @@ class ProjectsScreen extends ConsumerWidget {
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.07),
                     RichText(
                         text: TextSpan(
-                            text: '<< Press me >>',
+                            text: _text,
                             style: AppFonts.tangerine(context)))
                   ],
                 ),

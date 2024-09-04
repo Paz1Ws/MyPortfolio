@@ -108,7 +108,7 @@ class WhatIDo extends StatelessWidget {
                                   maxWidth: itemSize,
                                 ),
                             child: Card(
-                               color: AppColors.brightness(context),
+                               color: Colors.white,
                               elevation: 2, 
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
