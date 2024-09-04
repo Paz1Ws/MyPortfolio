@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class SocialMediaButtons extends StatelessWidget {
@@ -89,7 +91,8 @@ class SocialMediaButtons extends StatelessWidget {
                         : const Size(30, 50),
                   ),
                   child: Text('Download CV',
-                      style: TextStyle(
+                      style: AppFonts.josefinSans14.copyWith(
+                        color: AppColors.brightness(context),
                         fontSize: ResponsiveBreakpoints.of(context).isDesktop
                             ? 20
                             : 16,

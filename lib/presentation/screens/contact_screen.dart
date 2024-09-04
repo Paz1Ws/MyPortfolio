@@ -11,26 +11,8 @@ class ContactScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height * 0.3;
-
-    final Image image = Image.asset("assets/images/design/box_cover_gold.png",
-        height: height * 0.5, color: AppColors.softPurple);
-    final Image image2 = Image.asset(
-      "assets/images/design/box_cover_dark.png",
-      height: height * 0.8,
-      fit: BoxFit.cover,
-    );
-    final Image arrowImage = Image.asset(
-      'assets/images/design/arrow.png',
-      width: 50,
-      height: 50,
-      fit: BoxFit.contain,
-    );
-
-    precacheImage(image.image, context);
-    precacheImage(image2.image, context);
-    precacheImage(arrowImage.image, context);
     final socialButtons = Information();
+    double height = MediaQuery.of(context).size.height * 0.3;
     return ContentArea(
       borderRadius: const BorderRadius.all(
         Radius.circular(20),
@@ -41,12 +23,17 @@ class ContactScreen extends StatelessWidget {
           Positioned(
             top: -20,
             left: -35,
-            child: image,
+            child: Image.asset("assets/images/design/box_cover_gold.png",
+                height: height * 0.5, color: AppColors.softPurple),
           ),
           Positioned(
             bottom: -50,
             right: -20,
-            child: image2,
+            child: Image.asset(
+              "assets/images/design/box_cover_dark.png",
+              height: height * 0.8,
+              fit: BoxFit.cover,
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -78,7 +65,12 @@ class ContactScreen extends StatelessWidget {
                               style: AppFonts.josefinSans14.copyWith(
                                 color: Colors.white,
                               )),
-                          arrowImage,
+                          Image.asset(
+                            'assets/images/design/arrow.png',
+                            width: 50,
+                            height: 50,
+                            fit: BoxFit.contain,
+                          ),
                         ],
                       ),
                     ),

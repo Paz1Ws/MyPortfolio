@@ -9,8 +9,7 @@ import 'package:my_portfolio/presentation/widgets/General/available_to_work_cont
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutScreen extends ConsumerStatefulWidget {
-  final double height;
-  const AboutScreen({super.key, required this.height});
+  const AboutScreen({super.key});
 
   @override
   ConsumerState<AboutScreen> createState() => _AboutScreenState();
@@ -18,35 +17,15 @@ class AboutScreen extends ConsumerStatefulWidget {
 
 class _AboutScreenState extends ConsumerState<AboutScreen>
     with SingleTickerProviderStateMixin {
-  late AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 2),
-    vsync: this,
-  )..repeat(reverse: true);
-
-  late final Image image1 = _buildImage(widget.height * 1.8);
-
-  late final Image image2 = _buildImage(widget.height * 3);
-  late final Image image3 = _buildImage(widget.height * 1.8);
-  late final Image image4 = _buildImage(widget.height * 1.2);
-  Image _buildImage(double height) {
-    return Image.asset(
-      "assets/images/design/blob_small_bean_ash.png",
-      color: AppColors.lightBlack.withOpacity(0.2),
-      height: height,
-    );
-  }
+  late AnimationController _controller;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _precacheImages();
-  }
-
-  void _precacheImages() {
-    precacheImage(image1.image, context);
-    precacheImage(image2.image, context);
-    precacheImage(image3.image, context);
-    precacheImage(image4.image, context);
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    )..repeat(reverse: true);
   }
 
   @override
@@ -57,37 +36,60 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = ResponsiveBreakpoints.of(context).isMobile;
-    final showMoreInfo = ref.watch(showMoreInformationProv);
+    final size = MediaQuery.of(context).size;
+    Image _buildImage(double height) {
+      return Image.asset(
+        "assets/images/design/blob_small_bean_ash.png",
+        color: AppColors.lightBlack.withOpacity(0.2),
+        height: height,
+      );
+    }
 
+    print(
+        'Mobile:${ResponsiveBreakpoints.of(context).isMobile}\nTablet:${ResponsiveBreakpoints.of(context).isTablet}\nDesktop${ResponsiveBreakpoints.of(context).isDesktop} ');
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            top: isMobile ? null : 0,
-            left: isMobile ? null : (showMoreInfo ? -110 : -50),
-            child: showMoreInfo
-                ? SlideInLeft(
-                    duration: const Duration(seconds: 2),
-                    child: isMobile ? image1 : image3,
-                  )
-                : SlideInRight(
-                    duration: const Duration(seconds: 2),
-                    child: isMobile ? image2 : image4,
+        body: ResponsiveBreakpoints.of(context).isMobile
+            ? Stack(
+                children: [
+                  Positioned(
+                    child: ref.watch(showMoreInformationProv)
+                        ? SlideInLeft(
+                            duration: const Duration(seconds: 2),
+                            child: _buildImage(size.height * 1.8))
+                        : SlideInRight(
+                            duration: const Duration(seconds: 2),
+                            child: _buildImage(
+                              size.height * 3,
+                            ),
+                          ),
                   ),
-          ),
-          if (!isMobile)
-            const Positioned(
-              top: 50,
-              right: 80,
-              child: AvailableToWork(),
-            ),
-          AboutMeInformation(
-            controller: _controller,
-            information: Information(),
-          ),
-        ],
-      ),
-    );
+                  AboutMeInformation(
+                    controller: _controller,
+                    information: Information(),
+                  ),
+                ],
+              )
+            : Stack(
+                children: [
+                  Positioned(
+                    top: 0,
+                    left: ref.watch(showMoreInformationProv) ? -110 : -50,
+                    child: ref.watch(showMoreInformationProv)
+                        ? SlideInLeft(
+                            duration: const Duration(seconds: 2),
+                            child: _buildImage(size.height * 1.8))
+                        : SlideInRight(
+                            duration: const Duration(seconds: 2),
+                            child: _buildImage(size.height * 1.2),
+                          ),
+                  ),
+                  const Positioned(
+                      top: 50, right: 80, child: AvailableToWork()),
+                  AboutMeInformation(
+                    controller: _controller,
+                    information: Information(),
+                  ),
+                ],
+              ));
   }
 }

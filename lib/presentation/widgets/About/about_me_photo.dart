@@ -15,12 +15,6 @@ class AboutMePhoto extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final Image profileImage = Image.asset(
-      ref.watch(showMoreInformationProv)
-          ? "assets/images/BlackFlutterize.png"
-          : "assets/images/Me.jpg",
-    );
-    precacheImage(profileImage.image, context);
     return Stack(
       children: [
         ResponsiveBreakpoints.of(context).isMobile
@@ -40,7 +34,9 @@ class AboutMePhoto extends ConsumerWidget {
                 radius: ResponsiveBreakpoints.of(context).isMobile
                     ? size.aspectRatio * 130
                     : size.aspectRatio * 65,
-                backgroundImage: profileImage.image),
+                backgroundImage: AssetImage(ref.watch(showMoreInformationProv)
+                    ? "assets/images/BlackFlutterize.png"
+                    : "assets/images/Me.jpg")),
           ),
         ),
       ],

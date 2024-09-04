@@ -10,9 +10,6 @@ class ProjectsSwiper extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
     final projectImages = ref.watch(projectImagesProvider);
-    for (final image in projectImages) {
-      precacheImage(image.image, context);
-    }
 
     return Stack(
       children: [

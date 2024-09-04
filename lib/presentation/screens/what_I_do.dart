@@ -24,14 +24,8 @@ final List<DesignProcess> designProcesses = [
   ),
 ];
 
-class ServiceSection extends StatefulWidget {
+class ServiceSection extends StatelessWidget {
   ServiceSection({super.key});
-
-  @override
-  State<ServiceSection> createState() => _ServiceSectionState();
-}
-
-class _ServiceSectionState extends State<ServiceSection> {
   final whatIDo = [
     NameIconColor(
       title: "Mobile App Development",
@@ -54,26 +48,6 @@ class _ServiceSectionState extends State<ServiceSection> {
       color: Colors.red[400]!,
     ),
   ];
-  late final Image flutterBird;
-  late final SvgPicture image;
-  @override
-  void initState() {
-    super.initState();
-    flutterBird = Image.asset(
-      "assets/images/tech/flutter_bird.png",
-      fit: BoxFit.cover,
-    );
-    image = SvgPicture.asset(
-      "assets/images/design/whatido_background.svg",
-      fit: BoxFit.cover,
-    );
-  }
-
-  @override
-  void didChangeDependencies() {
-    precacheImage(flutterBird.image, context);
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,11 +57,22 @@ class _ServiceSectionState extends State<ServiceSection> {
           Positioned(
             top: -MediaQuery.of(context).size.height * 0.01,
             left: -MediaQuery.of(context).size.width * 0.2,
-            child: Opacity(opacity: 0.5, child: flutterBird),
+            child: Opacity(
+              opacity: 0.5,
+              child: Image.asset(
+                "assets/images/tech/flutter_bird.png",
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Opacity(
             opacity: 0.5,
-            child: SizedBox.expand(child: image),
+            child: SizedBox.expand(
+              child: SvgPicture.asset(
+                "assets/images/design/whatido_background.svg",
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
           Padding(
             padding:

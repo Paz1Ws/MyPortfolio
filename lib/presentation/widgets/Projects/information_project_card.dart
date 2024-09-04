@@ -18,9 +18,6 @@ class InformationCards extends ConsumerWidget {
     final informationList = ref.watch(informationListProvider);
     final iconsList = ref.watch(iconsListProvider);
 
-    for (final icon in iconsList[index]) {
-      precacheImage(icon.image, context);
-    }
     return Container(
       width: size.width * 0.4,
       decoration: BoxDecoration(
@@ -59,7 +56,7 @@ class InformationCards extends ConsumerWidget {
     );
   }
 
-  Widget _buildMadeWithSection(BuildContext context, List<Image> icons) {
+  Widget _buildMadeWithSection(BuildContext context, List<String> icons) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -74,11 +71,14 @@ class InformationCards extends ConsumerWidget {
         Wrap(
           alignment: WrapAlignment.center,
           spacing: 10,
-          children: icons.map((icon) {
+          children: icons.map((iconPath) {
             return CircleAvatar(
               backgroundColor: Colors.transparent,
               radius: 20,
-              child: icon,
+              child: Image.asset(
+                iconPath,
+                fit: BoxFit.cover,
+              ),
             );
           }).toList(),
         ),
