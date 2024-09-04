@@ -1,8 +1,6 @@
-My Portfolio
 My Portfolio is a Flutter application designed to showcase my projects, skills, and experiences. This application is built using Flutter and Riverpod for state management, providing a smooth and responsive user experience.
 
 Features
- - Splash Screen: A visually appealing splash screen to welcome users.
  - Theming: Dynamic theming support with light and dark modes.
  - Navigation: Easy navigation through different sections of the portfolio.
  - Audio Player: Integrated audio player for background music or sound effects.
