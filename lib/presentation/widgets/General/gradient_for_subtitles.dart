@@ -23,7 +23,6 @@ class GradientForSubtitles extends StatelessWidget {
             style: AppFonts.josefinSans24.copyWith(
               color: AppColors.softPurple,
               fontWeight: FontWeight.bold,
-              height: 0,
             )));
   }
 }

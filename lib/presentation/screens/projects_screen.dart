@@ -41,7 +41,7 @@ class ProjectsScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               
-              SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
               GradientForTitles(
                 title: "All my Projects till the moment",
               ),
@@ -58,7 +58,7 @@ class ProjectsScreen extends ConsumerWidget {
                       width: MediaQuery.of(context).size.width /1.2,
                       child: ProjectsSwiper(),
                     ),
-                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.07),
                     RichText(
                         text: TextSpan(
                             text: '<< Press me >>',

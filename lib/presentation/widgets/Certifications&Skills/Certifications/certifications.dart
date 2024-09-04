@@ -6,6 +6,7 @@ import 'package:my_portfolio/presentation/providers/certifications_prov.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications_card.dart';
 import 'package:my_portfolio/presentation/widgets/General/gradient_for_subtitles.dart';
 import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class CertificationsView extends ConsumerStatefulWidget {
   const CertificationsView({super.key});
@@ -44,7 +45,9 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
           FlutterCarousel(
             options: CarouselOptions(
               enableInfiniteScroll: true,
-              viewportFraction: 0.5,
+              viewportFraction: ResponsiveBreakpoints.of(context).isMobile
+                  ? .8
+                  : .5,
               aspectRatio: 1,
               autoPlayInterval: const Duration(milliseconds: 2500),
               autoPlay: true,
@@ -76,6 +79,7 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
 void _showImageDialog(BuildContext context, String imagePath) {
   showDialog(
     context: context,
+    barrierDismissible: true,
     builder: (context) {
       return Column(
         mainAxisSize: MainAxisSize.min,
@@ -89,21 +93,7 @@ void _showImageDialog(BuildContext context, String imagePath) {
               child: Image.asset(imagePath, fit: BoxFit.contain),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              "Close",
-              style: GoogleFonts.josefinSans(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-              ),
-            ),
-          ),
+        
         ],
       );
     },
