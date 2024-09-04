@@ -9,6 +9,7 @@ import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.da
 import 'package:my_portfolio/presentation/widgets/Projects/information_project_card.dart';
 import 'package:my_portfolio/presentation/widgets/Projects/projects_swiper.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class ProjectsScreen extends ConsumerWidget {
   final riverpodProvider = Information();
@@ -20,7 +21,57 @@ class ProjectsScreen extends ConsumerWidget {
     final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
 
     return Scaffold(
-      body: Stack(
+      body: ResponsiveBreakpoints.of(context).isMobile? 
+      
+      Stack(
+        children: [
+          Positioned(
+            bottom: -MediaQuery.of(context).size.height * 0.1,
+            right: 0,
+            child: Image.asset(
+              "assets/images/design/blob_femur_ash.png",
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? Colors.white.withOpacity(0.1)
+                  : AppColors.lightBlack,
+              height: MediaQuery.of(context).size.height * 0.4,
+            ),
+          ),
+        
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+              GradientForTitles(
+                title: "All my Projects till the moment",
+              ),
+              
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
+              GradientForSubtitles(
+                title: "Showcases of my passion for innovation",
+              ),
+              SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+              Center(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width /1.2,
+                      child: ProjectsSwiper(),
+                    ),
+                    SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
+                    RichText(
+                        text: TextSpan(
+                            text: '<< Press me >>',
+                            style: AppFonts.tangerine(context)))
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ):
+      
+      Stack(
         children: [
           Positioned(
             bottom: -MediaQuery.of(context).size.height * 0.1,

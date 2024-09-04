@@ -18,6 +18,7 @@ class GradientForTitles extends StatelessWidget {
       ).createShader(bounds),
       child: Text(
         title,
+        textAlign: TextAlign.center,
         style: AppFonts.styleTitleGradients.copyWith(
           fontSize: ResponsiveBreakpoints.of(context).isMobile ? 30 : 50,
         ),

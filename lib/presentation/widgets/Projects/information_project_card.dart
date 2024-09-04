@@ -5,11 +5,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/config/constants/media_projects_informations.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {
   final int index;
-  const InformationCards({Key? key, required this.index}) : super(key: key);
+  final double? width;
+  const InformationCards({Key? key, required this.index, this.width}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -19,7 +21,7 @@ class InformationCards extends ConsumerWidget {
     final iconsList = ref.watch(iconsListProvider);
 
     return Container(
-      width: size.width * 0.4,
+      width: width??size.width * 0.4, 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: AppColors.lightBlack,
@@ -95,12 +97,9 @@ class InformationCards extends ConsumerWidget {
           child: TextButton(
             child: Text(
               "See more over here!",
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
+              style: AppFonts.josefinSans.copyWith(
+                color: AppColors.brightness(context),
+                fontSize: 18
               ),
             ),
             onPressed: () => launchUrl(url),
