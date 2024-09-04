@@ -57,23 +57,95 @@ class WhatIDo extends StatelessWidget {
       body: ResponsiveBreakpoints.of(context).isMobile
           ? Column(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                Stack(
+                  alignment: Alignment.center,
                   children: [
                     Transform(
                       transform: Matrix4.translationValues(
-                          -size.width * 0.2, -size.height * 0.1, 0.0),
+                          -size.width * 0.1, -size.height * 0.1, 0.0),
                       child: Image.asset(
                         "assets/images/tech/flutter_bird.png",
-                        fit: BoxFit.contain,
-                        scale: 1,
+                        fit: BoxFit.cover,
+                        scale: 1.5,
+                        height: size.height / 2.5,
                       ),
                     ),
-                    GradientForTitles(
-                      title: "What I Do?",
+                    const Align(
+                      alignment: Alignment.centerRight,
+                      child: GradientForTitles(
+                        title: "What I Do?",
+                      ),
                     ),
                   ],
                 ),
+                Transform(
+                  transform: Matrix4.translationValues(
+                      0, -size.height * 0.06, 0.0),
+                  child: Text(
+                      "I'm a skilled professional who delivers excellent results.",
+                      textAlign: TextAlign.center,
+                      style: AppFonts.josefinSans14.copyWith(
+                        color: AppColors.grey800,
+                        fontSize: 18,
+                      )),
+                ),
+                Consumer(builder: (context, ref, _) {
+                  return LayoutBuilder(
+                    builder: (context, constraints) {
+                      final screenWidth = constraints.maxWidth;
+                      return Wrap(
+                        spacing: 15.0,
+                        runSpacing: 15.0,
+                        alignment: WrapAlignment.center,
+                        children: whatIDo.map((text) {
+                          final itemSize = screenWidth > 600 ? 200.0 : constraints.maxWidth / 2.5;
+                      
+                          return ConstrainedBox(
+                            constraints: BoxConstraints(
+                                  minHeight: itemSize/2,
+                                  minWidth: itemSize/2,
+                                  maxHeight: itemSize,
+                                  maxWidth: itemSize,
+                                ),
+                            child: Card(
+                               color: AppColors.brightness(context),
+                              elevation: 2, 
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              
+                             
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 40,
+                                      backgroundColor: AppColors.grey800,
+                                      child: Icon(
+                                        text.iconData,
+                                        color: text.color,
+                                        size: 40,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 15),
+                                    Text(
+                                      text.title,
+                                      textAlign: TextAlign.center,
+                                      style:AppFonts.josefinSans24.copyWith(
+                                        color: AppColors.grey800,
+                                        fontSize: 18,
+                                      )
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            
+                          );
+                        }).toList(),
+                      );
+                    },
+                  );
+                }),
               ],
             )
           : Stack(
