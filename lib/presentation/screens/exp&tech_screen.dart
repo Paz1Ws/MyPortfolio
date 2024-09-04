@@ -1,41 +1,60 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/services.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Skills/skill_list.dart';
 import 'package:my_portfolio/presentation/widgets/General/gradient_for_subtitles.dart';
 import 'package:my_portfolio/presentation/widgets/General/gradient_for_titles.dart';
 
 class ExpAndTech extends ConsumerWidget {
-  const ExpAndTech({super.key});
+  const ExpAndTech({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    void precacheImages(BuildContext context) {
+      // Precargar las imágenes en caché
+      precacheImage(
+        AssetImage("assets/images/design/dots_globe_grey.png"),
+        context,
+      );
+      precacheImage(
+        AssetImage("assets/images/design/blob_black.png"),
+        context,
+      );
+    }
+
+    precacheImages(context);
+
     return Scaffold(
       body: Center(
-        child: Stack(children: [
-          Skills(),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height - 500,
-            left: -100,
-            child: Image.asset("assets/images/design/dots_globe_grey.png",
-                color: AppColors.cyan),
-          ),
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 2,
-            right: -100,
-            child: Image.asset(
-              "assets/images/design/blob_black.png",
-              height: MediaQuery.sizeOf(context).height / 3,
+        child: Stack(
+          children: [
+            Skills(),
+            Positioned(
+              top: MediaQuery.of(context).size.height - 500,
+              left: -100,
+              child: Image.asset(
+                "assets/images/design/dots_globe_grey.png",
+                color: AppColors.cyan,
+              ),
             ),
-          ),
-        ]),
+            Positioned(
+              top: MediaQuery.of(context).size.height / 2,
+              right: -100,
+              child: Image.asset(
+                "assets/images/design/blob_black.png",
+                height: MediaQuery.of(context).size.height / 3,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 class Skills extends StatelessWidget {
-  const Skills({super.key});
+  const Skills({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

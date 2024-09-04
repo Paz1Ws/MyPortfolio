@@ -39,7 +39,11 @@ class _GlobalScreenState extends ConsumerState<GlobalScreen> {
         ref.watch(scrollControllerProvider);
 
     final List<Widget> screens = [
-      FadeIn(duration: const Duration(seconds: 2), child: const AboutScreen()),
+      FadeIn(
+          duration: const Duration(seconds: 2),
+          child: AboutScreen(
+            height: MediaQuery.sizeOf(context).height,
+          )),
       FadeInRight(
           duration: const Duration(seconds: 2), child: ServiceSection()),
       FadeInLeft(duration: const Duration(seconds: 2), child: ProjectsScreen()),

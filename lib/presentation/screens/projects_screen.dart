@@ -17,22 +17,24 @@ class ProjectsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final Image blobFemurAsh = Image.asset(
+      "assets/images/design/blob_femur_ash.png",
+      color: Theme.of(context).brightness == Brightness.dark
+          ? Colors.white.withOpacity(0.1)
+          : AppColors.lightBlack,
+      height: MediaQuery.of(context).size.height * 0.4,
+    );
+
+    precacheImage(blobFemurAsh.image, context);
     final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
 
     return Scaffold(
       body: Stack(
         children: [
           Positioned(
-            bottom: -MediaQuery.of(context).size.height * 0.1,
-            right: -80,
-            child: Image.asset(
-              "assets/images/design/blob_femur_ash.png",
-              color: Theme.of(context).brightness == Brightness.dark
-                  ? Colors.white.withOpacity(0.1)
-                  : AppColors.lightBlack,
-              height: MediaQuery.of(context).size.height * 0.4,
-            ),
-          ),
+              bottom: -MediaQuery.of(context).size.height * 0.1,
+              right: -80,
+              child: blobFemurAsh),
           Opacity(
             opacity: 0.5,
             child: SizedBox.expand(

@@ -22,9 +22,23 @@ class AboutMeShort extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Image arrowImage = Image.asset(
+      'assets/images/design/arrow.png',
+      width: 50,
+      height: 50,
+      fit: BoxFit.contain,
+      color: AppColors.softPurple,
+    );
+    precacheImage(arrowImage.image, context);
     return ResponsiveBreakpoints.of(context).isMobile
-        ? MobileView(controller: _controller, information: information)
-        : DesktopView(controller: _controller, information: information);
+        ? MobileView(
+            controller: _controller,
+            information: information,
+            arrowImage: arrowImage)
+        : DesktopView(
+            controller: _controller,
+            information: information,
+            arrowImage: arrowImage);
   }
 }
 
@@ -33,10 +47,12 @@ class MobileView extends StatelessWidget {
     super.key,
     required AnimationController controller,
     required this.information,
+    required this.arrowImage,
   }) : _controller = controller;
 
   final AnimationController _controller;
   final Information information;
+  final Image arrowImage;
 
   @override
   Widget build(BuildContext context) {
@@ -92,13 +108,7 @@ class MobileView extends StatelessWidget {
                           style: AppFonts.josefinSans14.copyWith(
                             color: AppColors.brightness(context),
                           )),
-                      Image.asset(
-                        'assets/images/design/arrow.png',
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.contain,
-                        color: AppColors.softPurple,
-                      ),
+                      arrowImage
                     ],
                   ),
                 ),
@@ -116,11 +126,12 @@ class DesktopView extends StatelessWidget {
     super.key,
     required AnimationController controller,
     required this.information,
+    required this.arrowImage,
   }) : _controller = controller;
 
   final AnimationController _controller;
   final Information information;
-
+  final Image arrowImage;
   @override
   Widget build(BuildContext context) {
     return FlipInX(
@@ -171,22 +182,15 @@ class DesktopView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 220),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("flutterize1@gmail.com",
-                        style: AppFonts.josefinSans14.copyWith(
-                          color: AppColors.brightness(context),
-                        )),
-                    Image.asset(
-                      'assets/images/design/arrow.png',
-                      width: 50,
-                      height: 50,
-                      fit: BoxFit.contain,
-                      color: AppColors.softPurple,
-                    ),
-                  ],
-                ),
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("flutterize1@gmail.com",
+                          style: AppFonts.josefinSans14.copyWith(
+                            color: AppColors.brightness(context),
+                          )),
+                      arrowImage,
+                    ]),
               ),
             ],
           ),

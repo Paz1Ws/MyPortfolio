@@ -24,8 +24,14 @@ final List<DesignProcess> designProcesses = [
   ),
 ];
 
-class ServiceSection extends StatelessWidget {
+class ServiceSection extends StatefulWidget {
   ServiceSection({super.key});
+
+  @override
+  State<ServiceSection> createState() => _ServiceSectionState();
+}
+
+class _ServiceSectionState extends State<ServiceSection> {
   final whatIDo = [
     NameIconColor(
       title: "Mobile App Development",
@@ -48,6 +54,26 @@ class ServiceSection extends StatelessWidget {
       color: Colors.red[400]!,
     ),
   ];
+  late final Image flutterBird;
+  late final SvgPicture image;
+  @override
+  void initState() {
+    super.initState();
+    flutterBird = Image.asset(
+      "assets/images/tech/flutter_bird.png",
+      fit: BoxFit.cover,
+    );
+    image = SvgPicture.asset(
+      "assets/images/design/whatido_background.svg",
+      fit: BoxFit.cover,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    precacheImage(flutterBird.image, context);
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,25 +83,12 @@ class ServiceSection extends StatelessWidget {
           Positioned(
             top: -MediaQuery.of(context).size.height * 0.01,
             left: -MediaQuery.of(context).size.width * 0.2,
-            child: Opacity(
-              opacity: 0.5,
-              child: Image.asset(
-                "assets/images/tech/flutter_bird.png",
-                fit: BoxFit.cover,
-              ),
-            ),
+            child: Opacity(opacity: 0.5, child: flutterBird),
           ),
-          // Expanded(
-          //   child: Opacity(
-          //     opacity: 0.5,
-          //     child: SizedBox.expand(
-          //       child: SvgPicture.asset(
-          //         "assets/images/design/whatido_background.svg",
-          //         fit: BoxFit.cover,
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          Opacity(
+            opacity: 0.5,
+            child: SizedBox.expand(child: image),
+          ),
           Padding(
             padding:
                 EdgeInsets.only(left: MediaQuery.of(context).size.width / 7),

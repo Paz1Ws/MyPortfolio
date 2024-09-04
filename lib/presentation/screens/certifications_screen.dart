@@ -10,6 +10,22 @@ class CertificationsScreen extends StatefulWidget {
 }
 
 class _CertificationsScreenState extends State<CertificationsScreen> {
+  late final SvgPicture image;
+
+  @override
+  void initState() {
+    super.initState();
+    image = SvgPicture.asset(
+      "assets/images/design/certifications_background.svg",
+      fit: BoxFit.cover,
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +34,7 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
           Opacity(
             opacity: 0.5,
             child: SizedBox.expand(
-              child: SvgPicture.asset(
-                "assets/images/design/certifications_background.svg",
-                fit: BoxFit.cover,
-              ),
+              child: image,
             ),
           ),
           Center(

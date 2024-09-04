@@ -11,17 +11,16 @@ import 'package:responsive_framework/responsive_framework.dart';
 class AboutMeInformation extends ConsumerWidget {
   const AboutMeInformation({
     super.key,
-    required this.size,
     required AnimationController controller,
     required this.information,
   }) : _controller = controller;
 
-  final Size size;
   final AnimationController _controller;
   final Information information;
 
   @override
   Widget build(BuildContext context, ref) {
+    Size size = MediaQuery.sizeOf(context);
     return ResponsiveBreakpoints.of(context).isMobile
         ? Padding(
             padding: EdgeInsets.symmetric(
