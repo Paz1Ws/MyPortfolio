@@ -40,8 +40,7 @@ class _GlobalScreenState extends ConsumerState<GlobalScreen> {
 
     final List<Widget> screens = [
       FadeIn(duration: const Duration(seconds: 2), child: AboutScreen()),
-      FadeInRight(
-          duration: const Duration(seconds: 2), child: ServiceSection()),
+      FadeInRight(duration: const Duration(seconds: 2), child: WhatIDo()),
       FadeInLeft(duration: const Duration(seconds: 2), child: ProjectsScreen()),
       BounceInUp(
           duration: const Duration(seconds: 2),
