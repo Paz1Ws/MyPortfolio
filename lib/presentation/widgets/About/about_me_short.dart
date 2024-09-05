@@ -45,12 +45,7 @@ class MobileView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            "Hello, I'm",
-            style: GoogleFonts.ubuntuMono(
-              fontSize: 40,
-            ),
-          ),
+          Text("Hello, I'm", style: AppFonts.ubuntuMono),
           const SizedBox(
             height: 5,
           ),
@@ -127,12 +122,7 @@ class DesktopView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Hello, I'm",
-            style: GoogleFonts.ubuntuMono(
-              fontSize: 40,
-            ),
-          ),
+          Text("Hello, I'm", style: AppFonts.ubuntuMono),
           const SizedBox(
             height: 5,
           ),

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/config/constants/media_projects_informations.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
+import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InformationCards extends ConsumerWidget {
@@ -60,14 +61,9 @@ class InformationCards extends ConsumerWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
-          "Made with:",
-          style: GoogleFonts.josefinSans(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: AppColors.cyan,
-          ),
-        ),
+        Text("Made with:",
+            style: AppFonts.josefinSans20
+                .copyWith(fontWeight: FontWeight.bold, color: AppColors.cyan)),
         Wrap(
           alignment: WrapAlignment.center,
           spacing: 10,

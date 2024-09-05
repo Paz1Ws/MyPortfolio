@@ -137,12 +137,9 @@ class InformationSwitcher extends ConsumerWidget {
       children: [
         Text(
           text,
-          style: GoogleFonts.josefinSans(
-            color: Theme.of(context).brightness == Brightness.dark
-                ? Colors.white.withOpacity(0.7)
-                : Colors.black.withOpacity(0.7),
-            fontSize: 16.0,
-            fontWeight: FontWeight.bold,
+          style: AppFonts.josefinSans14.copyWith(
+            color: AppColors.brightness(context),
+            fontSize: 16,
           ),
         ),
         const SizedBox(

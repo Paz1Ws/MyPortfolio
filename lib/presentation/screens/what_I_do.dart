@@ -166,15 +166,9 @@ class WhatIDo extends StatelessWidget {
                                           const SizedBox(
                                             height: 20,
                                           ),
-                                          Text(
-                                            text.title,
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.josefinSans(
-                                              color: Colors.grey[800],
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w800,
-                                            ),
-                                          )
+                                          Text(text.title,
+                                              textAlign: TextAlign.center,
+                                              style: AppFonts.josefinSans20)
                                         ],
                                       ),
                                     ))
@@ -203,13 +197,8 @@ class WhatIDo extends StatelessWidget {
                                 const SizedBox(
                                   width: 15.0,
                                 ),
-                                Text(
-                                  designProcesses[index].title,
-                                  style: GoogleFonts.josefinSans(
-                                    fontSize: 25.0,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                )
+                                Text(designProcesses[index].title,
+                                    style: AppFonts.josefinSans25)
                               ],
                             )
                         ],

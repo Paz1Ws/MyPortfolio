@@ -89,21 +89,6 @@ void _showImageDialog(BuildContext context, String imagePath) {
               child: Image.asset(imagePath, fit: BoxFit.contain),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              "Close",
-              style: GoogleFonts.josefinSans(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-              ),
-            ),
-          ),
         ],
       );
     },

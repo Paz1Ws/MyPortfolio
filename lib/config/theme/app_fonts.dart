@@ -10,16 +10,35 @@ class AppFonts {
     fontWeight: FontWeight.bold,
     height: 1.2,
   );
+  static final TextStyle ubuntuMono = GoogleFonts.ubuntuMono(
+    fontSize: 40,
+  );
+  static TextStyle ubuntu20(BuildContext context) {
+    return GoogleFonts.ubuntuMono(
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+        color: AppColors.brightness(context));
+  }
+
   static final TextStyle josefinSans14 = GoogleFonts.josefinSans(
     color: Colors.white, // Cyan
     fontSize: 14.0,
     fontWeight: FontWeight.bold,
+  );
+  static final TextStyle josefinSans20 = GoogleFonts.josefinSans(
+    color: Colors.grey[800],
+    fontSize: 20,
+    fontWeight: FontWeight.w800,
   );
   static final TextStyle josefinSans24 = GoogleFonts.josefinSans(
     color: AppColors.cyan,
     fontSize: 24.0,
     fontWeight: FontWeight.bold,
     height: 1.2, // Adjust the line spacing here
+  );
+  static final TextStyle josefinSans25 = GoogleFonts.josefinSans(
+    fontSize: 25.0,
+    fontWeight: FontWeight.w700,
   );
   static final TextStyle josefinSans32 = GoogleFonts.josefinSans(
     color: Colors.white,

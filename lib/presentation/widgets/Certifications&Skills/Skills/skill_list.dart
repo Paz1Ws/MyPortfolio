@@ -14,16 +14,7 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            Text(
-              'Frontend & Mobile: ',
-              style: GoogleFonts.ubuntuMono(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
+            Text('Frontend & Mobile: ', style: AppFonts.ubuntu20(context)),
             const SizedBox(width: 20),
             CardProfile(
                 type: 'frontend',
@@ -56,16 +47,7 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            Text(
-              'Backend & Databases: ',
-              style: GoogleFonts.ubuntuMono(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
+            Text('Backend & Databases: ', style: AppFonts.ubuntu20(context)),
             CardProfile(
                 type: 'backend',
                 widget: 'firebase',
@@ -113,16 +95,8 @@ class TechsList extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center, // Add this line
           children: [
-            Text(
-              'Tools for the daily life: ',
-              style: GoogleFonts.ubuntuMono(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? Colors.white
-                    : Colors.black,
-              ),
-            ),
+            Text('Tools for the daily life: ',
+                style: AppFonts.ubuntu20(context)),
             const SizedBox(width: 20),
             CardProfile(
                 type: 'devops',
