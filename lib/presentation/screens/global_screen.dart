@@ -57,13 +57,13 @@ class _GlobalScreenState extends ConsumerState<GlobalScreen> {
         if (event is KeyDownEvent) {
           if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
             scrollController.animateTo(
-              scrollController.offset + 100.0,
+              scrollController.offset + 50.0,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
             );
           } else if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
             scrollController.animateTo(
-              scrollController.offset - 100.0,
+              scrollController.offset - 50.0,
               duration: const Duration(milliseconds: 300),
               curve: Curves.easeInOut,
             );

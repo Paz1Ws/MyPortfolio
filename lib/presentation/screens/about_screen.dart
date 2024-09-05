@@ -45,8 +45,6 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
       );
     }
 
-    print(
-        'Mobile:${ResponsiveBreakpoints.of(context).isMobile}\nTablet:${ResponsiveBreakpoints.of(context).isTablet}\nDesktop${ResponsiveBreakpoints.of(context).isDesktop} ');
     return Scaffold(
         body: ResponsiveBreakpoints.of(context).isMobile
             ? Stack(

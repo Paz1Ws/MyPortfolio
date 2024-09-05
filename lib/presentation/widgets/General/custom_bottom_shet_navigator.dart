@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/presentation/providers/scroll_provider.dart';
 
 import '../../providers/navigations_prov.dart';
@@ -10,9 +11,7 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    Color color = Theme.of(context).brightness == Brightness.dark
-        ? Colors.white
-        : Colors.black;
+    Color color = AppColors.brightness(context);
 
     return SizedBox(
         height: MediaQuery.of(context).size.height *
@@ -29,7 +28,6 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
                       .update((state) => state = index);
                   scrollToSection(ref.watch(indexPagination), context, ref);
 
-                 
                   Future.delayed(const Duration(milliseconds: 500), () {
                     Navigator.of(context).pop();
                   });

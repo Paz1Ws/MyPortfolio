@@ -1,5 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:flutter_easy_animations/flutter_easy_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/constants/general_information.dart';
 import 'package:my_portfolio/config/theme/app_colors.dart';
