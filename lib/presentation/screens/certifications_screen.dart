@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class CertificationsScreen extends StatefulWidget {
   const CertificationsScreen({super.key});
@@ -28,6 +29,7 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Center(
         child: Stack(children: [
@@ -37,8 +39,11 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
               child: image,
             ),
           ),
-          Center(
-            child: const CertificationsView(),
+          Padding(
+            padding: EdgeInsets.only(bottom:   ResponsiveBreakpoints.of(context).isMobile?MediaQuery.of(context).size.height * 0.15:0),
+            child: Center(
+              child: const CertificationsView(),
+            ),
           ),
         ]),
       ),

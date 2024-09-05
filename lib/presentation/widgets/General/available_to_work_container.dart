@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_portfolio/config/theme/app_colors.dart';
 import 'package:my_portfolio/config/theme/app_fonts.dart';
 
 class AvailableToWork extends StatefulWidget {
@@ -34,10 +35,9 @@ class _AvailableToWorkState extends State<AvailableToWork>
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+    
       decoration: BoxDecoration(
-        color: Theme.of(context).brightness == Brightness.light
-            ? Colors.white
-            : Colors.black,
+        color: AppColors.brightnessInverse(context),
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
