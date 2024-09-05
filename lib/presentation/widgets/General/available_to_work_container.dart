@@ -35,7 +35,6 @@ class _AvailableToWorkState extends State<AvailableToWork>
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-    
       decoration: BoxDecoration(
         color: AppColors.brightnessInverse(context),
         borderRadius: BorderRadius.circular(20),
@@ -49,7 +48,7 @@ class _AvailableToWorkState extends State<AvailableToWork>
         ],
       ),
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           AnimatedBuilder(
             animation: _animation,
@@ -79,11 +78,10 @@ class _AvailableToWorkState extends State<AvailableToWork>
           ),
           const SizedBox(width: 8),
           Text('Available To Work',
-              style: AppFonts.josefinSans.copyWith(
-                color: Theme.of(context).brightness == Brightness.light
-                    ? Colors.black
-                    : Colors.white,
-              )),
+              overflow: TextOverflow.fade,
+              maxLines: 2,
+              style: AppFonts.josefinSans
+                  .copyWith(color: AppColors.brightness(context))),
         ],
       ),
     );

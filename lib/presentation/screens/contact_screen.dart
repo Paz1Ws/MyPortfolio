@@ -38,11 +38,14 @@ class ContactScreen extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Let's work together", style: AppFonts.josefinSans32),
+              Text("Let's work together",
+                  textAlign: TextAlign.center, style: AppFonts.josefinSans32),
               const SizedBox(height: 26),
               Text(
                 "Have a project in mind? \nLet's discuss and work together",
                 textAlign: TextAlign.center,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
                 style: AppFonts.josefinSans24,
               ),
               const SizedBox(

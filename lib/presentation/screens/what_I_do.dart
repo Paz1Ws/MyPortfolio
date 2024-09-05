@@ -79,8 +79,8 @@ class WhatIDo extends StatelessWidget {
                   ],
                 ),
                 Transform(
-                  transform: Matrix4.translationValues(
-                      0, -size.height * 0.06, 0.0),
+                  transform:
+                      Matrix4.translationValues(0, -size.height * 0.06, 0.0),
                   child: Text(
                       "I'm a skilled professional who delivers excellent results.",
                       textAlign: TextAlign.center,
@@ -98,48 +98,49 @@ class WhatIDo extends StatelessWidget {
                         runSpacing: 15.0,
                         alignment: WrapAlignment.center,
                         children: whatIDo.map((text) {
-                          final itemSize = screenWidth > 600 ? 200.0 : constraints.maxWidth / 2.5;
-                      
+                          final itemSize = screenWidth > 600
+                              ? 200.0
+                              : constraints.maxWidth / 2.5;
+
                           return ConstrainedBox(
                             constraints: BoxConstraints(
-                                  minHeight: itemSize/2,
-                                  minWidth: itemSize/2,
-                                  maxHeight: itemSize,
-                                  maxWidth: itemSize,
-                                ),
+                              minHeight: itemSize / 2,
+                              minWidth: itemSize / 2,
+                              maxHeight: itemSize,
+                              maxWidth: itemSize,
+                            ),
                             child: Card(
-                               color: Colors.white,
-                              elevation: 2, 
+                              color: Colors.white,
+                              elevation: 2,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              
-                             
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 40,
-                                      backgroundColor: AppColors.grey800,
-                                      child: Icon(
-                                        text.iconData,
-                                        color: text.color,
-                                        size: 40,
-                                      ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CircleAvatar(
+                                    radius: 40,
+                                    backgroundColor: AppColors.grey800,
+                                    child: Icon(
+                                      text.iconData,
+                                      color: text.color,
+                                      size: 40,
                                     ),
-                                    const SizedBox(height: 15),
-                                    Text(
-                                      text.title,
-                                      textAlign: TextAlign.center,
-                                      style:AppFonts.josefinSans24.copyWith(
-                                        color: AppColors.grey800,
-                                        fontSize: 18,
-                                      )
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  const SizedBox(height: 15),
+                                  Flexible(
+                                    child: Text(text.title,
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                        textAlign: TextAlign.center,
+                                        style: AppFonts.josefinSans24.copyWith(
+                                          color: AppColors.grey800,
+                                          fontSize: 18,
+                                        )),
+                                  ),
+                                ],
                               ),
-                            
+                            ),
                           );
                         }).toList(),
                       );
