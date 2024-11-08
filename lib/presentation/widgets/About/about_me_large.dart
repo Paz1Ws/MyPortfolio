@@ -40,7 +40,7 @@ class AboutMeLarge extends StatelessWidget {
                 color: AppColors.brightness(context),
                 fontSize: ResponsiveBreakpoints.of(context).isMobile ? 14 : 18,
               ),
-              children: <TextSpan>[
+              children: const <TextSpan>[
                 TextSpan(
                   text:
                       'I am a Flutter Developer with a passion for creating \n',
@@ -111,7 +111,7 @@ class AboutMeLarge extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         InformationSwitcher(
@@ -128,6 +128,7 @@ class InformationSwitcher extends ConsumerWidget {
       {super.key, required this.controller, required this.text});
 
   final String text;
+  // ignore: prefer_typing_uninitialized_variables
   final controller;
 
   @override

@@ -12,6 +12,8 @@ import 'package:my_portfolio/presentation/widgets/General/custom_app_bar.dart';
 import 'exp&tech_screen.dart';
 
 class GlobalScreen extends ConsumerStatefulWidget {
+  const GlobalScreen({super.key});
+
   @override
   ConsumerState<GlobalScreen> createState() => _GlobalScreenState();
 }
@@ -39,9 +41,10 @@ class _GlobalScreenState extends ConsumerState<GlobalScreen> {
         ref.watch(scrollControllerProvider);
 
     final List<Widget> screens = [
-      FadeIn(duration: const Duration(seconds: 2), child: AboutScreen()),
+      FadeIn(duration: const Duration(seconds: 2), child: const AboutScreen()),
       FadeInRight(duration: const Duration(seconds: 2), child: WhatIDo()),
-      FadeInLeft(duration: const Duration(seconds: 2), child: ProjectsScreen()),
+      FadeInLeft(
+          duration: const Duration(seconds: 2), child: const ProjectsScreen()),
       BounceInUp(
           duration: const Duration(seconds: 2),
           child: const CertificationsScreen()),

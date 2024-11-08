@@ -22,6 +22,12 @@ List<Widget> frontendMobile = [
       widget: 'css',
       title: 'CSS',
       url: Uri.parse('https://www.w3.org/Style/CSS/Overview.en.html')),
+  CardProfile(
+      type: 'frontend',
+      widget: 'figma',
+      title: 'Figma',
+      url: Uri.parse(
+          'https://th.bing.com/th/id/OIP.6vAaXFqh_Vq-NtE78gM60gHaDt?rs=1&pid=ImgDetMain')),
 ];
 
 List<Widget> backendDatabases = [
@@ -30,6 +36,11 @@ List<Widget> backendDatabases = [
       widget: 'firebase',
       title: 'Firebase',
       url: Uri.parse('https://firebase.google.com/')),
+  CardProfile(
+      type: 'backend',
+      widget: 'supabase',
+      title: 'Supabase',
+      url: Uri.parse('https://supabase.io/')),
   CardProfile(
       type: 'frontend',
       widget: 'c-sharp',

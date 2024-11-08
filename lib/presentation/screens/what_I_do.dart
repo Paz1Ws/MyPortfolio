@@ -185,7 +185,7 @@ class WhatIDo extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      GradientForTitles(
+                      const GradientForTitles(
                         title: "What I Do?",
                       ),
                       const SizedBox(

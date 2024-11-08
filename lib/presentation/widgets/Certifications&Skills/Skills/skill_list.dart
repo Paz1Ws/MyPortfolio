@@ -32,7 +32,7 @@ class TechsListDesktop extends StatelessWidget {
 class TechRow extends StatelessWidget {
   final List<Widget> techs;
   final String title;
-  TechRow({
+  const TechRow({
     required this.techs,
     required this.title,
     super.key,

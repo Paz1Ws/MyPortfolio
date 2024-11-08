@@ -29,7 +29,6 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Center(
         child: Stack(children: [
@@ -40,9 +39,12 @@ class _CertificationsScreenState extends State<CertificationsScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(bottom:   ResponsiveBreakpoints.of(context).isMobile?MediaQuery.of(context).size.height * 0.15:0),
-            child: Center(
-              child: const CertificationsView(),
+            padding: EdgeInsets.only(
+                bottom: ResponsiveBreakpoints.of(context).isMobile
+                    ? MediaQuery.of(context).size.height * 0.15
+                    : 0),
+            child: const Center(
+              child: CertificationsView(),
             ),
           ),
         ]),

@@ -10,14 +10,14 @@ final projectImagesProvider = StateProvider((ref) => const [
     ]);
 
 final informationListProvider = StateProvider((ref) => [
-       ProjectsInformation().exoview,
+      ProjectsInformation().exoview,
       ProjectsInformation().fitbody,
       ProjectsInformation().jobMatch,
       ProjectsInformation().billboard,
     ]);
 final iconsListProvider = StateProvider((ref) => [
-       ProjectsInformation().exoview_icons,
-      ProjectsInformation().fitbody_icons,
-      ProjectsInformation().jobMatch_icons,
-      ProjectsInformation().billboard_icons,
+      ProjectsInformation().exoviewIcons,
+      ProjectsInformation().fitbodyIcons,
+      ProjectsInformation().jobMatchIcons,
+      ProjectsInformation().billboardIcons,
     ]);

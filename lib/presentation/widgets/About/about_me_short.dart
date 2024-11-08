@@ -49,7 +49,7 @@ class MobileView extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          GradientForTitles(
+          const GradientForTitles(
             title: "Christopher Paz",
           ),
           const SizedBox(
@@ -126,7 +126,7 @@ class DesktopView extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          GradientForTitles(
+          const GradientForTitles(
             title: "Christopher Paz",
           ),
           const SizedBox(

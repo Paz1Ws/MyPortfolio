@@ -37,7 +37,7 @@ class AboutMeInformation extends ConsumerWidget {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       AboutMePhoto(size: size),
-                      AvailableToWork(),
+                      const AvailableToWork(),
                     ],
                   ),
                 ),

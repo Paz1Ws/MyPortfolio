@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/presentation/providers/certifications_prov.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Certifications/certifications_card.dart';
 import 'package:my_portfolio/presentation/widgets/General/gradient_for_subtitles.dart';
@@ -29,12 +28,12 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
         children: [
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: size.width * .8),
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 GradientForTitles(
                   title: "Achievements & Certifications",
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: 10),
                 GradientForSubtitles(
                   title: "Udemy | DevTalles | Hackaton Awards",
                 ),

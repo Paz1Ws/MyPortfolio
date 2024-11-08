@@ -21,5 +21,5 @@ class AppColors {
   static const Color deepPurple = Colors.deepPurpleAccent;
   static const Color white = Colors.white;
   static Color? grey800 = Colors.grey[800];
-  static const Color lightBlack = const Color.fromARGB(36, 36, 36, 35);
+  static const Color lightBlack = Color.fromARGB(36, 36, 36, 35);
 }

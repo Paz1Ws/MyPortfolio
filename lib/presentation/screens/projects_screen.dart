@@ -12,6 +12,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ProjectsScreen extends ConsumerStatefulWidget {
+  const ProjectsScreen({super.key});
+
   @override
   ConsumerState<ProjectsScreen> createState() => _ProjectsScreenState();
 }
@@ -43,11 +45,11 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.05),
-                    GradientForTitles(
+                    const GradientForTitles(
                       title: "All my Projects till the moment",
                     ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.02),
-                    GradientForSubtitles(
+                    const GradientForSubtitles(
                       title: "Showcases of my passion for innovation",
                     ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
@@ -56,7 +58,7 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 1.2,
-                            child: ProjectsSwiper(),
+                            child: const ProjectsSwiper(),
                           ),
                           SizedBox(
                               height: MediaQuery.sizeOf(context).height * 0.07),
@@ -99,10 +101,10 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GradientForTitles(
+                      const GradientForTitles(
                         title: "All my Projects till the moment",
                       ),
-                      GradientForSubtitles(
+                      const GradientForSubtitles(
                         title: "Showcases of my passion for innovation",
                       ),
                       SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
@@ -116,7 +118,7 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
                                 SizedBox(
                                   width:
                                       MediaQuery.of(context).size.width * 0.3,
-                                  child: ProjectsSwiper(),
+                                  child: const ProjectsSwiper(),
                                 ),
                                 SizedBox(
                                     width: MediaQuery.sizeOf(context).width *

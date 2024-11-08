@@ -15,7 +15,6 @@ class ExpAndTech extends ConsumerWidget {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          Skills(),
           Positioned(
             top: MediaQuery.sizeOf(context).height - 500,
             left: -100,
@@ -43,17 +42,17 @@ class Skills extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        GradientForTitles(
+        const GradientForTitles(
           title: "My Skills: ",
         ),
         const SizedBox(height: 20),
-        GradientForSubtitles(
+        const GradientForSubtitles(
           title: "I have experience with the following technologies",
         ),
         const SizedBox(height: 20),
         ResponsiveBreakpoints.of(context).isMobile
-            ? TechsListMobile()
-            : TechsListDesktop()
+            ? const TechsListMobile()
+            : const TechsListDesktop()
       ],
     );
   }

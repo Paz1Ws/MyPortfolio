@@ -4,11 +4,11 @@ import 'package:my_portfolio/config/theme/app_fonts.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Skills/skills_cards.dart';
 
 class TechsListMobile extends StatelessWidget {
-  const TechsListMobile({Key? key});
+  const TechsListMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height * .7,
       width: double.infinity,
       child: Column(
@@ -64,8 +64,8 @@ class TechCarouselGenerator extends StatelessWidget {
   final List<Widget> techs;
 
   const TechCarouselGenerator({
+    super.key,
     required this.techs,
-    Key? key,
   });
 
   @override

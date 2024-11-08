@@ -21,7 +21,7 @@ class MainApp extends ConsumerWidget {
           theme.globalBrightnessisDark ? ThemeData.dark() : ThemeData.light(),
       debugShowCheckedModeBanner: false,
       home: ResponsiveBreakpoints.builder(
-        child: GlobalScreen(),
+        child: const GlobalScreen(),
         breakpoints: [
           const Breakpoint(start: 0, end: 820, name: 'MOBILE'),
           const Breakpoint(start: 821, end: 980, name: 'TABLET'),
