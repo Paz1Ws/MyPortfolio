@@ -15,14 +15,6 @@ class ExpAndTech extends ConsumerWidget {
     return Scaffold(
       body: Center(
         child: Stack(children: [
-          Positioned(
-            top: MediaQuery.sizeOf(context).height / 2,
-            right: -100,
-            child: Image.asset(
-              "assets/images/design/blob_black.png",
-              height: MediaQuery.sizeOf(context).height / 3,
-            ),
-          ),
           Skills(),
           Positioned(
             top: MediaQuery.sizeOf(context).height - 500,
@@ -30,6 +22,13 @@ class ExpAndTech extends ConsumerWidget {
             child: Image.asset("assets/images/design/dots_globe_grey.png",
                 color: AppColors.cyan),
           ),
+          Positioned(
+            top: MediaQuery.sizeOf(context).height - 500,
+            left: -100,
+            child: Image.asset("assets/images/design/dots_globe_grey.png",
+                color: AppColors.cyan),
+          ),
+          const Skills(),
         ]),
       ),
     );

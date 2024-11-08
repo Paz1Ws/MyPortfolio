@@ -21,4 +21,11 @@ class ProjectsInformation {
     'assets/images/tech/flutter.png',
     'assets/images/tech/firebase.png'
   ];
+String exoview = "Embark on a cosmic journey with Exoview, your gateway to exploring the wonders of exoplanets.\n\nDiscover stunning 3D models of exoplanets, powered by NASA's API, and delve into their unique characteristics. Designed with Figma for an intuitive and visually captivating experience, Exoview offers an immersive exploration of worlds beyond our solar system.";
+ List<String> exoview_icons = [
+    'assets/images/tech/flutter.png',
+    'assets/images/tech/supabase.png',
+    'assets/images/tech/figma.png'
+  ];
+
 }

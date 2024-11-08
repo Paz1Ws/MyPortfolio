@@ -17,72 +17,75 @@ class ContactScreen extends StatelessWidget {
       borderRadius: const BorderRadius.all(
         Radius.circular(20),
       ),
-      child: Stack(
-        alignment: Alignment.topCenter,
-        children: [
-          Positioned(
-            top: -20,
-            left: -35,
-            child: Image.asset("assets/images/design/box_cover_gold.png",
-                height: height * 0.5, color: AppColors.softPurple),
-          ),
-          Positioned(
-            bottom: -50,
-            right: -20,
-            child: Image.asset(
-              "assets/images/design/box_cover_dark.png",
-              height: height * 0.8,
-              fit: BoxFit.cover,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Stack(
+          alignment: Alignment.topCenter,
+          children: [
+            Positioned(
+              top: -20,
+              left: -35,
+              child: Image.asset("assets/images/design/box_cover_gold.png",
+                  height: height * 0.5, color: AppColors.softPurple),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Let's work together",
-                  textAlign: TextAlign.center, style: AppFonts.josefinSans32),
-              const SizedBox(height: 26),
-              Text(
-                "Have a project in mind? \nLet's discuss and work together",
-                textAlign: TextAlign.center,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: AppFonts.josefinSans24,
+            Positioned(
+              bottom: -50,
+              right: -20,
+              child: Image.asset(
+                "assets/images/design/box_cover_dark.png",
+                height: height * 0.8,
+                fit: BoxFit.cover,
               ),
-              const SizedBox(
-                height: 30,
-              ),
-              FittedBox(
-                fit: BoxFit.contain,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    SocialMediaButtons(
-                        linksProvider: socialButtons,
-                        alignment: MainAxisAlignment.center),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          SelectableText("flutterize1@gmail.com",
-                              style: AppFonts.josefinSans14.copyWith(
-                                color: Colors.white,
-                              )),
-                          Image.asset(
-                            'assets/images/design/arrow.png',
-                            width: 50,
-                            height: 50,
-                            fit: BoxFit.contain,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Let's work together",
+                    textAlign: TextAlign.center, style: AppFonts.josefinSans32),
+                const SizedBox(height: 26),
+                Text(
+                  "Have a project in mind? \nLet's discuss and work together",
+                  textAlign: TextAlign.center,
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppFonts.josefinSans24,
                 ),
-              ),
-            ],
-          ),
-        ],
+                const SizedBox(
+                  height: 30,
+                ),
+                FittedBox(
+                  fit: BoxFit.contain,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SocialMediaButtons(
+                          linksProvider: socialButtons,
+                          alignment: MainAxisAlignment.center),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            SelectableText("flutterize1@gmail.com",
+                                style: AppFonts.josefinSans14.copyWith(
+                                  color: Colors.white,
+                                )),
+                            Image.asset(
+                              'assets/images/design/arrow.png',
+                              width: 50,
+                              height: 50,
+                              fit: BoxFit.contain,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

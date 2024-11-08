@@ -15,7 +15,8 @@ class ProjectsSwiper extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () {
-        ResponsiveBreakpoints.of(context).isMobile ? _showDescriptionDialog(context, selectedProjectIndex) : null;
+        ResponsiveBreakpoints.of(context).isMobile ?
+         _showDescriptionDialog(context, selectedProjectIndex) : null;
       },
       child: SwipeDeck(
         aspectRatio: 1.8,

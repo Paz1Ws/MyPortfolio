@@ -67,7 +67,7 @@ class SocialMediaButtons extends StatelessWidget {
               ? const SizedBox()
               : ElevatedButton(
                   onPressed: () async {
-                    linksProvider.download_CV();
+                    linksProvider.downloadCV();
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(

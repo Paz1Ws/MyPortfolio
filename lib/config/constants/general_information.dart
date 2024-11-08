@@ -12,9 +12,11 @@ class Information {
     Uri.parse("mailto: rewardmnx@gmail.com")
   ];
   final List<Uri> projectsLinks = [
+    Uri.parse(
+        "https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/beyond-the-known/?tab=details"),
+    Uri.parse("https://github.com/Paz1Ws/PartialFitnessApp"),
     Uri.parse("https://github.com/Paz1Ws/JobMatch"),
     Uri.parse("https://github.com/Paz1Ws/billboard"),
-    Uri.parse("https://github.com/Paz1Ws/PartialFitnessApp"),
   ];
   void launchURL(int i) async {
     Uri url = Information().socialMediaLinks[i];
@@ -22,7 +24,7 @@ class Information {
     launchUrl(url);
   }
 
-  void download_CV() async {
+  void downloadCV() async {
     await launchUrl(Uri.parse(
         "https://drive.google.com/file/d/1HZM2fyVZ3EjEg2c5Zrkw0MNkn0NUiy3j/view?usp=sharing"));
   }

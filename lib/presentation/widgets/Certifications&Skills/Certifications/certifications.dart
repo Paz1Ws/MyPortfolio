@@ -30,7 +30,7 @@ class _CertificationsViewState extends ConsumerState<CertificationsView> {
           ConstrainedBox(
             constraints: BoxConstraints(maxWidth: size.width * .8),
             child: Column(
-              children: [
+              children: const [
                 GradientForTitles(
                   title: "Achievements & Certifications",
                 ),

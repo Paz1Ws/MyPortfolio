@@ -14,9 +14,6 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final size = MediaQuery.of(context).size;
-
-    print('Ancho: ${size.width}, Alto: ${size.height}');
 
     return MaterialApp(
       title: 'My Portfolio',

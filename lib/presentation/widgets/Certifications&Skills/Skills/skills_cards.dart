@@ -79,6 +79,6 @@ List<Widget> dailyTools = [
   CardProfile(
       type: 'code',
       widget: 'visual-studio-code',
-      title: 'Visual Studio Code',
+      title: 'VS Code',
       url: Uri.parse('https://code.visualstudio.com/')),
 ];

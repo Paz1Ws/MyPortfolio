@@ -22,7 +22,7 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     final selectedProjectIndex = ref.watch(selectedProjectIndexProvider);
-    String _text = '<< Press or Swipe me >>';
+    String text = '<< Press or Swipe me >>';
 
     return Scaffold(
       body: ResponsiveBreakpoints.of(context).isMobile
@@ -62,7 +62,7 @@ class _ProjectsScreenState extends ConsumerState<ProjectsScreen> {
                               height: MediaQuery.sizeOf(context).height * 0.07),
                           RichText(
                               text: TextSpan(
-                                  text: _text,
+                                  text: text,
                                   style: AppFonts.tangerine(context)))
                         ],
                       ),
