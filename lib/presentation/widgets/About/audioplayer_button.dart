@@ -7,10 +7,10 @@ class ButtonPlayer extends StatefulWidget {
   const ButtonPlayer({super.key, required this.audioUrl});
 
   @override
-  _ButtonPlayerState createState() => _ButtonPlayerState();
+  ButtonPlayerState createState() => ButtonPlayerState();
 }
 
-class _ButtonPlayerState extends State<ButtonPlayer> {
+class ButtonPlayerState extends State<ButtonPlayer> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
 

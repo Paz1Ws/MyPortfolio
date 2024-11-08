@@ -29,6 +29,7 @@ class CustomBottomSheetNavigator extends ConsumerWidget {
                   scrollToSection(ref.watch(indexPagination), context, ref);
 
                   Future.delayed(const Duration(milliseconds: 500), () {
+                    // ignore: use_build_context_synchronously
                     Navigator.of(context).pop();
                   });
                 },

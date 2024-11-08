@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/config/theme/app_fonts.dart';
-import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Skills/skill_card.dart';
 import 'package:my_portfolio/presentation/widgets/Certifications&Skills/Skills/skills_cards.dart';
 
 class TechsListDesktop extends StatelessWidget {

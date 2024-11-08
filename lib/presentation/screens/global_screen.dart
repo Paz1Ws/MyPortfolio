@@ -7,9 +7,9 @@ import 'package:my_portfolio/presentation/screens/about_screen.dart';
 import 'package:my_portfolio/presentation/screens/certifications_screen.dart';
 import 'package:my_portfolio/presentation/screens/contact_screen.dart';
 import 'package:my_portfolio/presentation/screens/projects_screen.dart';
-import 'package:my_portfolio/presentation/screens/what_I_do.dart';
+import 'package:my_portfolio/presentation/screens/what_i_do.dart';
 import 'package:my_portfolio/presentation/widgets/General/custom_app_bar.dart';
-import 'exp&tech_screen.dart';
+import 'exp_tech_screen.dart';
 
 class GlobalScreen extends ConsumerStatefulWidget {
   const GlobalScreen({super.key});

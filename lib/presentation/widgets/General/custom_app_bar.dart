@@ -11,13 +11,13 @@ class CustomAppBar extends ConsumerStatefulWidget
   const CustomAppBar({super.key});
 
   @override
-  _CustomAppBarState createState() => _CustomAppBarState();
+  CustomAppBarState createState() => CustomAppBarState();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
-class _CustomAppBarState extends ConsumerState<CustomAppBar> {
+class CustomAppBarState extends ConsumerState<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
     return Padding(

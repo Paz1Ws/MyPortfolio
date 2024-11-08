@@ -6,6 +6,7 @@ class AvailableToWork extends StatefulWidget {
   const AvailableToWork({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AvailableToWorkState createState() => _AvailableToWorkState();
 }
 

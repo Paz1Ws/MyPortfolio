@@ -37,7 +37,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    Image _buildImage(double height) {
+    Image buildImage(double height) {
       return Image.asset(
         "assets/images/design/blob_small_bean_ash.png",
         color: AppColors.lightBlack.withOpacity(0.2),
@@ -53,10 +53,10 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
                     child: ref.watch(showMoreInformationProv)
                         ? SlideInLeft(
                             duration: const Duration(seconds: 2),
-                            child: _buildImage(size.height * 1.8))
+                            child: buildImage(size.height * 1.8))
                         : SlideInRight(
                             duration: const Duration(seconds: 2),
-                            child: _buildImage(
+                            child: buildImage(
                               size.height * 3,
                             ),
                           ),
@@ -75,10 +75,10 @@ class _AboutScreenState extends ConsumerState<AboutScreen>
                     child: ref.watch(showMoreInformationProv)
                         ? SlideInLeft(
                             duration: const Duration(seconds: 2),
-                            child: _buildImage(size.height * 1.8))
+                            child: buildImage(size.height * 1.8))
                         : SlideInRight(
                             duration: const Duration(seconds: 2),
-                            child: _buildImage(size.height * 1.2),
+                            child: buildImage(size.height * 1.2),
                           ),
                   ),
                   const Positioned(

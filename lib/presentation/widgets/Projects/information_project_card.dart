@@ -11,7 +11,7 @@ import 'package:url_launcher/url_launcher.dart';
 class InformationCards extends ConsumerWidget {
   final int index;
   final double? width;
-  const InformationCards({Key? key, required this.index, this.width}) : super(key: key);
+  const InformationCards({super.key, required this.index, this.width});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

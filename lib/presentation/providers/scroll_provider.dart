@@ -17,6 +17,7 @@ void scrollToSection(int index, BuildContext context, ref) {
     );
     ref.read(indexPagination.notifier).state = 0;
   } catch (e) {
+    // ignore: avoid_print
     print("Ignore error in scroll.");
   }
 }
